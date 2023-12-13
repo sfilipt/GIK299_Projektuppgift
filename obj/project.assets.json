@@ -8,24 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Filip\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mattr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Filip\\Documents\\Skola\\År1\\Objektorienterad Programmering\\Labbar\\Collections\\Projektuppgift\\Projektuppgift.csproj",
+      "projectUniqueName": "C:\\Users\\Mattr\\Documents\\GIK299\\Objektorienterad programmering\\Github\\GIK299_Projektuppgift\\Projektuppgift.csproj",
       "projectName": "Projektuppgift",
-      "projectPath": "C:\\Users\\Filip\\Documents\\Skola\\År1\\Objektorienterad Programmering\\Labbar\\Collections\\Projektuppgift\\Projektuppgift.csproj",
-      "packagesPath": "C:\\Users\\Filip\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Filip\\Documents\\Skola\\År1\\Objektorienterad Programmering\\Labbar\\Collections\\Projektuppgift\\obj\\",
+      "projectPath": "C:\\Users\\Mattr\\Documents\\GIK299\\Objektorienterad programmering\\Github\\GIK299_Projektuppgift\\Projektuppgift.csproj",
+      "packagesPath": "C:\\Users\\Mattr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mattr\\Documents\\GIK299\\Objektorienterad programmering\\Github\\GIK299_Projektuppgift\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Filip\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Mattr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

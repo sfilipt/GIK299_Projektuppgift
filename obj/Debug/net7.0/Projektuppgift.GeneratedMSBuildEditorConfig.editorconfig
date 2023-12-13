@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Projektuppgift
-build_property.ProjectDir = C:\Users\Filip\Documents\Skola\År1\Objektorienterad Programmering\Labbar\Collections\Projektuppgift\
+build_property.ProjectDir = C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

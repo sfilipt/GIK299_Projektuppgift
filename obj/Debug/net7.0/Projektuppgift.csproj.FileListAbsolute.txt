@@ -1,0 +1,15 @@
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.AssemblyInfoInputs.cache
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.AssemblyInfo.cs
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.csproj.CoreCompileInputs.cache
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.sourcelink.json
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\bin\Debug\net7.0\Projektuppgift.exe
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\bin\Debug\net7.0\Projektuppgift.deps.json
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\bin\Debug\net7.0\Projektuppgift.runtimeconfig.json
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\bin\Debug\net7.0\Projektuppgift.dll
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\bin\Debug\net7.0\Projektuppgift.pdb
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.dll
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\refint\Projektuppgift.dll
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.pdb
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\Projektuppgift.genruntimeconfig.cache
+C:\Users\Mattr\Documents\GIK299\Objektorienterad programmering\Github\GIK299_Projektuppgift\obj\Debug\net7.0\ref\Projektuppgift.dll
