@@ -8,10 +8,8 @@ namespace Projektuppgift
 {
     public class Längd
     {
-        public void LengthConv();
+        public void LengthConv()
         {
-            Längd converter = new Längd();
-
             while (true)
             {
 
