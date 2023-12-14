@@ -33,7 +33,7 @@ namespace Projektuppgift
                 {
                     case 1:
                         Console.WriteLine("\n-------------------------------------------\n " +
-                            "\nVilket prefix har storheten du vill omvandla från?" +
+                            "\nVilket prefix har enheten du vill omvandla från?" +
                             "\n 1. Gram" +
                             "\n 2. Kilogram" +
                             "\n 3. Ton" +
@@ -55,7 +55,7 @@ namespace Projektuppgift
                         break;
                     case 2:
                         Console.WriteLine("\n-------------------------------------------\n " +
-                            "\nVilket prefix har storheten du vill omvandla från?" +
+                            "\nVilket prefix har enheten du vill omvandla från?" +
                            "\n 1. Ounce" +
                            "\n 2. Pound" +
                            "\n 3. Short ton" +
@@ -391,6 +391,6 @@ namespace Projektuppgift
                 }
             }
             }
-        }
-    }
+        }  
+}
 
