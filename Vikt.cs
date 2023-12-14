@@ -22,22 +22,22 @@ namespace Projektuppgift
             string outputPrefix = default;
             while (menu1Choice != 3)
             {
-                Console.WriteLine("\n ---------------------------------\n" +
+                Console.WriteLine("\n-----------------------------------\n" +
                              "Vilken enhet vill du konvertera från?" +
                              "\n1. SI-enhet." +
                              "\n2. Amerikansk enheter." +
                              "\n3. Gå tillbaka till föregående meny." +
-                             "\n -------------------------------");
+                             "\n---------------------------------\n");
                 menu1Choice = Convert.ToInt32(Console.ReadLine());
                 switch (menu1Choice)
                 {
                     case 1:
-                        Console.WriteLine(" -------------------------------" +
+                        Console.WriteLine("\n-------------------------------------------\n " +
                             "\nVilket prefix har storheten du vill omvandla från?" +
                             "\n 1. Gram" +
                             "\n 2. Kilogram" +
                             "\n 3. Ton" +
-                            "\n -------------------------------");
+                            "\n -------------------------------------------\n");
                         inputPrefix = Convert.ToInt32(Console.ReadLine());
                         if (inputPrefix == 1)
                         {
@@ -54,12 +54,12 @@ namespace Projektuppgift
                         Menu2();
                         break;
                     case 2:
-                        Console.WriteLine(" -------------------------------" +
+                        Console.WriteLine("\n-------------------------------------------\n " +
                             "\nVilket prefix har storheten du vill omvandla från?" +
                            "\n 1. Ounce" +
                            "\n 2. Pound" +
-                           "\n 3. Stone" +
-                           "\n -------------------------------");
+                           "\n 3. Short ton" +
+                           "\n-------------------------------------------\n ");
                         inputPrefix = Convert.ToInt32(Console.ReadLine());
                         if (inputPrefix == 1)
                         {
@@ -81,12 +81,12 @@ namespace Projektuppgift
 
                 void Menu2()
                 {
-                    Console.WriteLine("\n -------------------------------" +
+                    Console.WriteLine("\n-------------------------------" +
                                 "\nVilken enhet vill du konvertera till?" +
                                 "\n1. SI-enhet." +
                                 "\n2. Amerikanka enheter" +
                                 "\n3. Gå tillbaka till föregående meny." +
-                                "\n -------------------------------");
+                                "\n-------------------------------");
                     menu2Choice = Convert.ToInt32((Console.ReadLine()));
                         switch (menu2Choice)
                         {
@@ -95,41 +95,57 @@ namespace Projektuppgift
                                 {
                                     OutPutPrefix();
                                     SIToSI();
-                                    Console.Write($"{amountToConvert} {unit} är {answer} {outputPrefix}");
+                                    Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                                     menu2Choice = 0;
                                     menu1Choice = 0;
-                                }
+                                Console.WriteLine("\n Tryck Enter för att fortsätta programmet");
+                                Console.ReadKey();
+                            }
                                 else if (menu1Choice == 2)
                                 {
                                     OutPutPrefix();
                                     AmericanToSI();
-                                    Console.Write($"{amountToConvert} {unit} är {answer} {outputPrefix}");
-                                }
+                                    Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                                    menu2Choice = 0;
+                                    menu1Choice = 0;
+                                    Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                                    Console.ReadKey();
+                            }
                             break;
                         case 2:
                             if (menu1Choice == 1)
                                 OutPutPrefix();
                                 SIToAmerican();
-                                Console.Write($"{amountToConvert} {unit} är {answer} {outputPrefix}");
+                                Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                                menu2Choice = 0;
+                                menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                                Console.ReadKey();
                             if (menu1Choice == 2)
                                 OutPutPrefix();
                                 AmericanToAmerican();
-                                Console.Write($"{amountToConvert} {unit} är {answer} {outputPrefix}");
+                                Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                                menu2Choice = 0;
+                                menu1Choice = 0;
+                                Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                                Console.ReadKey();
                             break;
                         case 3:
                             break;
 
                     }
                 }
+                //-------------Enheter tagna från https://blog.ansi.org/2018/06/us-customary-system-conversion-metric/
                 string OutPutPrefix()
                 {
                     if (menu2Choice == 1)
                     {
-                        Console.WriteLine("------------------------------------" +
+                        Console.WriteLine("\n-------------------------------------------\n " +
                                    "\nVilket prefix ska resultatet av konverteringen ha?" +
                                    "\n1. Gram" +
                                    "\n2. Kilogram" +
-                                   "\n3. Ton");
+                                   "\n3. Ton" +
+                                   "\n-------------------------------------------\n ");
                         outputPrefixSI = int.Parse(Console.ReadLine());
                         if (outputPrefixSI == 1)
                         {
@@ -146,11 +162,12 @@ namespace Projektuppgift
                     }
                     if (menu2Choice == 2)
                     {
-                        Console.WriteLine("------------------------------------" +
+                        Console.WriteLine("\n-------------------------------------------\n " +
                                    "\nVilket prefix ska resultatet av konverteringen ha?" +
                                    "\n1. Ounce" +
                                    "\n2. Pound" +
-                                   "\n3. Short ton");
+                                   "\n3. Short ton" +
+                                   "\n-------------------------------------------\n ");
                         outputPrefixA = int.Parse(Console.ReadLine());
                         if (outputPrefixA == 1)
                         {
@@ -169,7 +186,7 @@ namespace Projektuppgift
                 }
                 double SIToAmerican()
                 {
-                    Console.WriteLine($"Hur många {unit} vill du omvandla?");
+                    Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
                     amountToConvert = double.Parse(Console.ReadLine());
                     switch (inputPrefix)
                     {
@@ -218,7 +235,7 @@ namespace Projektuppgift
                 }
                 double AmericanToSI()
                 {
-                    Console.WriteLine($"Hur många {unit} vill du omvandla?");
+                    Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
                     amountToConvert = double.Parse(Console.ReadLine());
                     switch (inputPrefix)
                     {
@@ -270,7 +287,7 @@ namespace Projektuppgift
                 }
                 double AmericanToAmerican() // fixa rätt uträkningar
                 {
-                    Console.WriteLine($"Hur många {unit} vill du omvandla?");
+                    Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
                     amountToConvert = double.Parse(Console.ReadLine());
                     switch (inputPrefix)
                     {
@@ -322,7 +339,7 @@ namespace Projektuppgift
                 }
                 double SIToSI() 
                 {
-                    Console.WriteLine($"Hur många {unit} vill du omvandla?");
+                    Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
                     amountToConvert = double.Parse(Console.ReadLine());
                     switch (inputPrefix)
                     {
