@@ -6,7 +6,253 @@ using System.Threading.Tasks;
 
 namespace Projektuppgift
 {
-    internal class Temperatur
+    public class Temperatur
     {
+        public void Menu1()
+        {
+            int menu1Choice = 0;
+            int menu2Choice;
+            double amountToConvert = 0;
+            double answer = 0;
+            string unit = default;
+            string outputUnit = default;
+            while (menu1Choice != 4)
+            {
+                Console.WriteLine("\n-----------------------------------\n" +
+                             "Vilken temperaturenhet vill du konvertera från?" +
+                             "\n1. SI-enhet, (Kelvin,K)." +
+                             "\n2. Fahrenheit (°F)." +
+                             "\n3. Celsius (°C)" +
+                             "\n4. Gå tillbaka till föregående meny." +
+                             "\n---------------------------------\n");
+                menu1Choice = Convert.ToInt32(Console.ReadLine());
+                switch (menu1Choice)
+                {
+                    case 1:
+                        unit = "K";
+                        Menu2();
+                        break;
+                    case 2:
+                        unit = "°F";
+                        Menu2();
+                        break;
+                    case 3:
+                        unit = "°C";
+                        Menu2();
+                        break;
+                    case 4:
+                        break;
+                }
+
+             
+            }
+            //Metod som låter användaren välja vilken enhet som hen vill konvertera till
+            void Menu2()
+            {
+                Console.WriteLine("\n-------------------------------" +
+                            "\nVilken temperaturenhet vill du konvertera till?" +
+                            "\n1. SI-enhet (Kelvin,K)." +
+                            "\n2. Fahrenheit (°F)." +
+                            "\n3. Celsius (°C)" +
+                            "\n4. Gå tillbaka till föregående meny." +
+                            "\n---------------------------------\n");
+                menu2Choice = Convert.ToInt32(Console.ReadLine());
+                switch (menu2Choice)
+                {
+                    //Kelvin till Kelvin, Fahrenheit till Kelvin, Celsius till Kelvin
+                    case 1:
+                        if (menu1Choice == 1)
+                        {
+                            OutputUnit();
+                            SIToSI();
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu1Choice = 0;
+                            Console.WriteLine("\n Tryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        else if (menu1Choice == 2)
+                        {
+                            OutputUnit();
+                            FahrenheitToSI();
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        else if (menu1Choice == 3)
+                        {
+                            OutputUnit();
+                            CelsiusToSI();
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\n Tryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        break;
+                    //Kelvin till Fahrenheit, Fahrenheit till Fahrenheit och Celsius till Fahrenheit
+                    case 2:
+                        if (menu1Choice == 1)
+                        {
+                            OutputUnit();
+                            SIToFahrenheit();
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        if (menu1Choice == 2)
+                        {
+                            OutputUnit();
+                            FahrenheitToFahrenheit();
+                            Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        if (menu1Choice == 3)
+                        {
+                            OutputUnit();
+                            CelsiusToFahrenheit();
+                            Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        break;
+                    //Kelvin till Celsius, Fahrenheit till Celsius och Celsius till Celsius
+                    case 3:
+                        if (menu1Choice == 1)
+                        {
+                            OutputUnit();
+                            SIToCelsius();
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        if (menu1Choice == 2)
+                        {
+                            OutputUnit();
+                            FahrenheitToCelsius();
+                            Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        if (menu1Choice == 3)
+                        {
+                            OutputUnit();
+                            CelsiusToCelsius();
+                            Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
+                            menu2Choice = 0;
+                            menu1Choice = 0;
+                            Console.WriteLine("\nTryck Enter för att fortsätta programmet");
+                            Console.ReadKey();
+                        }
+                        break;
+                    case 4:
+                        break;
+
+                }
+            }
+
+            string OutputUnit()
+            {
+                if (menu2Choice == 1)
+                {
+                    outputUnit = "K";
+                }
+                else if (menu2Choice == 2)
+                {
+                    outputUnit = "°F";
+                }
+                else if (menu2Choice == 3)
+                {
+                    outputUnit = "°C";
+                }
+                return outputUnit;
+            }
+            //Metoder som sköter omvandling mellan olika temperaturenheter
+            //Omvandlingsformler tagna från: https://www.metric-conversions.org/
+            double SIToSI()
+            {
+                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = amountToConvert;
+                return answer;
+
+            }
+            double SIToFahrenheit()
+            {
+                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = ((amountToConvert - 273.15)*1.8)+32; 
+                return answer;
+
+            }
+            double SIToCelsius()
+            {
+                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = (amountToConvert - 273.15);
+                return answer;
+
+            }
+            double FahrenheitToSI()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = ((amountToConvert - 32) / 1.8) + 273.15;
+                return answer;
+
+            }
+            double FahrenheitToFahrenheit()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = amountToConvert;
+                return answer;
+
+            }
+            double FahrenheitToCelsius()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = (amountToConvert - 32) / 1.8;
+                return answer;
+
+            }
+            double CelsiusToSI()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = amountToConvert + 273.15;
+                return answer;
+
+            }
+            double CelsiusToFahrenheit()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = (amountToConvert * 1.8) + 32;
+                return answer;
+
+            }
+            double CelsiusToCelsius()
+            {
+                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                amountToConvert = double.Parse(Console.ReadLine());
+                answer = amountToConvert;
+                return answer;
+
+            }
+        }
     }
 }

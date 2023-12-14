@@ -93,7 +93,7 @@ namespace Projektuppgift
                             case 1:
                                 if (menu1Choice == 1)
                                 {
-                                    OutPutPrefix();
+                                    OutputPrefix();
                                     SIToSI();
                                     Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                                     menu2Choice = 0;
@@ -103,7 +103,7 @@ namespace Projektuppgift
                             }
                                 else if (menu1Choice == 2)
                                 {
-                                    OutPutPrefix();
+                                    OutputPrefix();
                                     AmericanToSI();
                                     Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                                     menu2Choice = 0;
@@ -114,7 +114,7 @@ namespace Projektuppgift
                             break;
                         case 2:
                             if (menu1Choice == 1)
-                                OutPutPrefix();
+                                OutputPrefix();
                                 SIToAmerican();
                                 Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                                 menu2Choice = 0;
@@ -122,7 +122,7 @@ namespace Projektuppgift
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                                 Console.ReadKey();
                             if (menu1Choice == 2)
-                                OutPutPrefix();
+                                OutputPrefix();
                                 AmericanToAmerican();
                                 Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                                 menu2Choice = 0;
@@ -136,7 +136,7 @@ namespace Projektuppgift
                     }
                 }
                 //-------------Enheter tagna från https://blog.ansi.org/2018/06/us-customary-system-conversion-metric/
-                string OutPutPrefix()
+                string OutputPrefix()
                 {
                     if (menu2Choice == 1)
                     {
@@ -285,7 +285,7 @@ namespace Projektuppgift
                     return answer;
 
                 }
-                double AmericanToAmerican() // fixa rätt uträkningar
+                double AmericanToAmerican()
                 {
                     Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
                     amountToConvert = double.Parse(Console.ReadLine());
