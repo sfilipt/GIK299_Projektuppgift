@@ -29,7 +29,7 @@ namespace Projektuppgift
                 string menu1ChoiceInput = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(menu1ChoiceInput) || !int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 3 || menu1Choice < 1)
                 {
-                    Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
+                    Console.WriteLine("Fel: Skriv in en siffra mellan 1 och 3.");
                     menu1ChoiceInput = Console.ReadLine();
                 }
                 switch (menu1Choice)
@@ -65,7 +65,7 @@ namespace Projektuppgift
                 string menu2ChoiceInput = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace (menu2ChoiceInput) ||!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 4 || menu2Choice < 1)
                 { 
-                    Console.WriteLine("Ange ett tal mellan 1 och 4"); 
+                    Console.WriteLine("Fel: Ange ett tal mellan 1 och 4."); 
                     menu2ChoiceInput = Console.ReadLine();
                 }
                     switch (menu2Choice)
@@ -198,7 +198,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = amountToConvert;
@@ -211,7 +211,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten");
+                    Console.WriteLine("Fel:Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = ((amountToConvert - 273.15)*1.8)+32; 
@@ -224,7 +224,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 amountToConvert = double.Parse(Console.ReadLine());
@@ -238,7 +238,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 amountToConvert = double.Parse(Console.ReadLine());
@@ -252,7 +252,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = amountToConvert;
@@ -265,7 +265,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = (amountToConvert - 32) / 1.8;
@@ -278,7 +278,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = amountToConvert + 273.15;
@@ -291,7 +291,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = (amountToConvert * 1.8) + 32;
@@ -304,7 +304,7 @@ namespace Projektuppgift
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
                 {
-                    Console.WriteLine("Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten");
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
                     strAmountToConvert = Console.ReadLine();
                 }
                 answer = amountToConvert;

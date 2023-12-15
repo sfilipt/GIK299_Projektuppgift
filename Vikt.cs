@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Projektuppgift
 {
@@ -21,6 +22,7 @@ namespace Projektuppgift
             double answer = 0;
             string unit = default;
             string outputPrefix = default;
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 3)
             {
                 Console.WriteLine("\n-----------------------------------\n" +
@@ -115,7 +117,7 @@ namespace Projektuppgift
                 string menu2ChoiceInput = Console.ReadLine();
                 while (!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 3 || menu2Choice < 1)
                 {
-                    Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
+                    Console.WriteLine("Fel: Ange en siffra mellan 1 och 3.");
                     menu2ChoiceInput = Console.ReadLine();
                 }
                 switch (menu2Choice)
@@ -125,7 +127,12 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             SIToSI();
-                            Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            // https://learn.microsoft.com/en-us/dotnet/standard/io/how-to-write-text-to-a-file#example-synchronously-append-text-with-streamwriter
+                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                            {
+                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                            }
                             menu1Choice = 0;
                             Console.WriteLine("\n Tryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -134,7 +141,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             AmericanToSI();
-                            Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -145,7 +152,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             SIToAmerican();
-                            Console.Write($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -229,9 +236,9 @@ namespace Projektuppgift
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
                 string strAmountToConvert = Console.ReadLine();
-                while(!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                while(!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
-                    Console.WriteLine("Ange ett tal som är större än 0");
+                    Console.WriteLine("Fel: Ange ett tal som är större än 0");
                     strAmountToConvert = Console.ReadLine();
                 }
                 switch (inputPrefix)
@@ -286,9 +293,9 @@ namespace Projektuppgift
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
                 string strAmountToConvert = Console.ReadLine();
-                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
-                    Console.WriteLine("Ange ett tal som är större än 0");
+                    Console.WriteLine("Fel: Ange ett tal som är större än 0");
                     strAmountToConvert = Console.ReadLine();
                 }
                 switch (inputPrefix)
@@ -343,9 +350,9 @@ namespace Projektuppgift
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
                 string strAmountToConvert = Console.ReadLine();
-                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
-                    Console.WriteLine("Ange ett tal som är större än 0");
+                    Console.WriteLine("Fel: Ange ett tal som är större än 0");
                     strAmountToConvert = Console.ReadLine();
                 }
                 switch (inputPrefix)
@@ -400,9 +407,9 @@ namespace Projektuppgift
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
                 string strAmountToConvert = Console.ReadLine();
-                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
-                    Console.WriteLine("Ange ett tal som är större än 0");
+                    Console.WriteLine("Fel: Ange ett tal som är större än 0");
                     strAmountToConvert = Console.ReadLine();
                 }
                 switch (inputPrefix)
