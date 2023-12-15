@@ -8,6 +8,7 @@ namespace Projektuppgift
 {
     public class Temperatur
     {
+        //Meny som visas om användaren valt att konvertera temperatur
         public void Menu1()
         {
             int menu1Choice = 0;
@@ -25,7 +26,12 @@ namespace Projektuppgift
                              "\n3. Celsius (°C)" +
                              "\n4. Gå tillbaka till föregående meny." +
                              "\n---------------------------------\n");
-                menu1Choice = Convert.ToInt32(Console.ReadLine());
+                string menu1ChoiceInput = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(menu1ChoiceInput) || !int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 3 || menu1Choice < 1)
+                {
+                    Console.WriteLine("Fel: Skriv in en siffra mellan 1 och 3.");
+                    menu1ChoiceInput = Console.ReadLine();
+                }
                 switch (menu1Choice)
                 {
                     case 1:
@@ -56,8 +62,13 @@ namespace Projektuppgift
                             "\n3. Celsius (°C)" +
                             "\n4. Gå tillbaka till föregående meny." +
                             "\n---------------------------------\n");
-                menu2Choice = Convert.ToInt32(Console.ReadLine());
-                switch (menu2Choice)
+                string menu2ChoiceInput = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace (menu2ChoiceInput) ||!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 4 || menu2Choice < 1)
+                { 
+                    Console.WriteLine("Fel: Ange ett tal mellan 1 och 4."); 
+                    menu2ChoiceInput = Console.ReadLine();
+                }
+                    switch (menu2Choice)
                 {
                     //Kelvin till Kelvin, Fahrenheit till Kelvin, Celsius till Kelvin
                     case 1:
@@ -162,7 +173,7 @@ namespace Projektuppgift
 
                 }
             }
-
+            //Metod som bestämmer enhet på outputen
             string OutputUnit()
             {
                 if (menu2Choice == 1)
@@ -184,7 +195,12 @@ namespace Projektuppgift
             double SIToSI()
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = amountToConvert;
                 return answer;
 
@@ -192,7 +208,12 @@ namespace Projektuppgift
             double SIToFahrenheit()
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                {
+                    Console.WriteLine("Fel:Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = ((amountToConvert - 273.15)*1.8)+32; 
                 return answer;
 
@@ -200,6 +221,12 @@ namespace Projektuppgift
             double SIToCelsius()
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > 0)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än 0 eftersom 0K är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 amountToConvert = double.Parse(Console.ReadLine());
                 answer = (amountToConvert - 273.15);
                 return answer;
@@ -208,6 +235,12 @@ namespace Projektuppgift
             double FahrenheitToSI()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 amountToConvert = double.Parse(Console.ReadLine());
                 answer = ((amountToConvert - 32) / 1.8) + 273.15;
                 return answer;
@@ -216,7 +249,12 @@ namespace Projektuppgift
             double FahrenheitToFahrenheit()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = amountToConvert;
                 return answer;
 
@@ -224,7 +262,12 @@ namespace Projektuppgift
             double FahrenheitToCelsius()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -459.67)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -459,67 eftersom -459,67°F är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = (amountToConvert - 32) / 1.8;
                 return answer;
 
@@ -232,7 +275,12 @@ namespace Projektuppgift
             double CelsiusToSI()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = amountToConvert + 273.15;
                 return answer;
 
@@ -240,7 +288,12 @@ namespace Projektuppgift
             double CelsiusToFahrenheit()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = (amountToConvert * 1.8) + 32;
                 return answer;
 
@@ -248,7 +301,12 @@ namespace Projektuppgift
             double CelsiusToCelsius()
             {
                 Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
-                amountToConvert = double.Parse(Console.ReadLine());
+                string strAmountToConvert = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert > -273.15)
+                {
+                    Console.WriteLine("Fel: Ange ett tal som ska konverteras.Talet måste vara större än -273,15 eftersom -273,15°C är absoluta nollpunkten.");
+                    strAmountToConvert = Console.ReadLine();
+                }
                 answer = amountToConvert;
                 return answer;
 
