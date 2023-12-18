@@ -49,7 +49,7 @@ namespace Projektuppgift
                                 "\n 1. Gram" +
                                 "\n 2. Kilogram" +
                                 "\n 3. Ton" +
-                                "\n -------------------------------------------\n");
+                                "\n-------------------------------------------\n");
                                 string strInputPrefix = Console.ReadLine();
                                 while (!int.TryParse(strInputPrefix, out inputPrefix) || inputPrefix > 3 || inputPrefix < 1)
                                 {
@@ -75,9 +75,9 @@ namespace Projektuppgift
                             {
                                 Console.WriteLine("\n-------------------------------------------\n " +
                                 "\nVilket prefix har enheten du vill omvandla från?" +
-                               "\n 1. Ounce" +
-                               "\n 2. Pound" +
-                               "\n 3. Short ton" +
+                               "\n1. Ounce" +
+                               "\n2. Pound" +
+                               "\n3. Short ton" +
                                "\n-------------------------------------------\n ");
                                 string strInputPrefix = Console.ReadLine();
                                 while (!int.TryParse(strInputPrefix, out inputPrefix) || inputPrefix > 3 || inputPrefix < 1)
@@ -111,11 +111,10 @@ namespace Projektuppgift
                 Console.WriteLine("\n-------------------------------" +
                             "\nVilken enhet vill du konvertera till?" +
                             "\n1. SI-enhet." +
-                            "\n2. Amerikanka enheter" +
-                            "\n3. Gå tillbaka till föregående meny." +
+                            "\n2. Amerikanka enheter." +
                             "\n-------------------------------");
                 string menu2ChoiceInput = Console.ReadLine();
-                while (!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 3 || menu2Choice < 1)
+                while (!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 2 || menu2Choice < 1)
                 {
                     Console.WriteLine("Fel: Ange en siffra mellan 1 och 3.");
                     menu2ChoiceInput = Console.ReadLine();
@@ -142,6 +141,10 @@ namespace Projektuppgift
                             OutputPrefix();
                             AmericanToSI();
                             Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                            {
+                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                            }
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -153,6 +156,10 @@ namespace Projektuppgift
                             OutputPrefix();
                             SIToAmerican();
                             Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                            {
+                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                            }
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -162,12 +169,14 @@ namespace Projektuppgift
                             OutputPrefix();
                             AmericanToAmerican();
                             Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                            {
+                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                            }
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
                         }
-                        break;
-                    case 3:
                         break;
                 }
             }
