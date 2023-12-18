@@ -126,12 +126,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             SIToSI();
-                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
-                            // https://learn.microsoft.com/en-us/dotnet/standard/io/how-to-write-text-to-a-file#example-synchronously-append-text-with-streamwriter
-                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
-                            {
-                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
-                            }
+                            Answer();
                             menu1Choice = 0;
                             Console.WriteLine("\n Tryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -140,11 +135,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             AmericanToSI();
-                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
-                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
-                            {
-                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
-                            }
+                            Answer();
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -155,11 +146,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             SIToAmerican();
-                            Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
-                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
-                            {
-                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
-                            }
+                            Answer();
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -168,11 +155,7 @@ namespace Projektuppgift
                         {
                             OutputPrefix();
                             AmericanToAmerican();
-                            Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
-                            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
-                            {
-                                outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
-                            }
+                            Answer();
                             menu1Choice = 0;
                             Console.WriteLine("\nTryck Enter för att fortsätta programmet");
                             Console.ReadKey();
@@ -240,7 +223,6 @@ namespace Projektuppgift
                 return outputPrefix;
             }
             //Metoder som utför omvandlingsberäkningar, 
-            //-------------Enheter tagna från https://blog.ansi.org/2018/06/us-customary-system-conversion-metric/
             double SIToAmerican()
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
@@ -468,6 +450,14 @@ namespace Projektuppgift
                 }
                 return answer;
 
+            }
+            void Answer()
+            {
+                Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                {
+                    outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                }
             }
         }
     }  
