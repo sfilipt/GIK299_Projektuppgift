@@ -12,7 +12,7 @@ namespace Projektuppgift
         public void LengthConv()
         {
             bool validInput = false;
-            bool menu1 = false;
+            bool menu1 = true;
             bool menu2 = false;
             int menuLength = 0;
             int SImenuFrom = 0;
@@ -30,7 +30,7 @@ namespace Projektuppgift
                     "\n-----------------------\n"
                     );
 
-                Console.Write("Enter your choice: ");
+                Console.Write("Ange ditt val: ");
                 menuLength = Convert.ToInt32(Console.ReadLine());
 
                 switch (menuLength)
@@ -63,7 +63,6 @@ namespace Projektuppgift
                                     "\n1.cm" +
                                     "\n2.m" +
                                     "\n3.km" +
-                                    "\n4.Gå tillbaka till förra menyn" +
                                     "\n-----------------------\n"
                                     );
 
@@ -74,24 +73,21 @@ namespace Projektuppgift
                                 {
                                     case 1:
                                         fromUnit = "cm";
+                                        menu2 = true;
                                         break;
                                     case 2:
                                         fromUnit = "m";
+                                        menu2 = true;
                                         break;
                                     case 3:
                                         fromUnit = "km";
-                                        break;
-                                    case 4:
+                                        menu2 = true;
                                         break;
                                     default:
                                         Console.WriteLine("Ogiltigt val. Försök igen. ");
                                         break;
                                 }
                             }
-
-                            Console.WriteLine("Ange värdet: ");
-                            double value;
-                            double convertedValue = ConvertLength(value, fromUnit, toUnit);
 
                             while (menu2)
                             {
@@ -101,10 +97,9 @@ namespace Projektuppgift
                                     "\n1.cm" +
                                     "\n2.m" +
                                     "\n3.km" +
-                                    "\n4.Feet" + 
+                                    "\n4.Feet" +
                                     "\n5.Yards" +
                                     "\n6.Miles" +
-                                    "\n7.Gå tillbaka till förra menyn" +
                                     "\n-----------------------\n"
                                     );
 
@@ -131,29 +126,35 @@ namespace Projektuppgift
                                     case 6:
                                         toUnit = "Miles";
                                         break;
-                                    case 7:
-                                        break;
                                     default:
                                         Console.WriteLine("Ogiltigt val. Försök igen. ");
                                         break;
                                 }
-                                
 
+                                Console.WriteLine("Ange värdet: ");
+                                double value;
+
+                                while (!double.TryParse(Console.ReadLine(), out value))
+                                {
+                                    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
+                                }
+
+                                double convertedValue = ConvertLength(value, fromUnit, toUnit);
                                 Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
                             }
 
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine("Incorrect format. Please try again. ");
+                            Console.WriteLine("Felaktigt format. Var god försök igen. ");
                         }
                         catch (ArgumentException)
                         {
-                            Console.WriteLine("Invalid input. Please try again. ");
+                            Console.WriteLine("Felaktig input. Var god försök igen. ");
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine("Something went wrong. Please try again. ");
+                            Console.WriteLine("Något gick fel. Var god försök igen. ");
                         }
                     }
 
@@ -211,7 +212,6 @@ namespace Projektuppgift
                                     "\n1.foot" +
                                     "\n2.yards" +
                                     "\n3.miles" +
-                                    "\n4.Gå tillbaka till förra menyn" +
                                     "\n-----------------------\n"
                                     );
 
@@ -229,19 +229,12 @@ namespace Projektuppgift
                                     case 3:
                                         fromUnit = "miles";
                                         break;
-                                    case 4:
-                                        break;
                                     default:
                                         Console.WriteLine("Ogiltigt val. Försök igen. ");
                                         break;
                                 }
                             }
 
-                            Console.WriteLine("Ange värdet: ");
-                            double value;
-
-                            double convertedValue = ConvertLength(value, fromUnit, toUnit);
-                
                             while (menu2)
                             {
                                 Console.WriteLine(
@@ -253,7 +246,6 @@ namespace Projektuppgift
                                     "\n4.Feet" +
                                     "\n5.Yards" +
                                     "\n6.Miles" +
-                                    "\n7.Gå tillbaka till förra menyn" +
                                     "\n-----------------------\n"
                                     );
 
@@ -280,26 +272,34 @@ namespace Projektuppgift
                                     case 6:
                                         toUnit = "Miles";
                                         break;
-                                    case 7:
-                                        break;
                                     default:
                                         Console.WriteLine("Ogiltigt val. Försök igen. ");
                                         break;
                                 }
+
+                                Console.WriteLine("Ange värdet: ");
+                                double value;
+
+                                while (!double.TryParse(Console.ReadLine(), out value))
+                                {
+                                    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
+                                }
+
+                                double convertedValue = ConvertLength(value, fromUnit, toUnit);
                                 Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
                             }
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine("Incorrect format. Please try again. ");
+                            Console.WriteLine("Felaktigt format. Var god försök igen. ");
                         }
                         catch (ArgumentException)
                         {
-                            Console.WriteLine("Invalid input. Please try again. ");
+                            Console.WriteLine("Felaktig input. Var god försök igen. ");
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine("Something went wrong. Please try again. ");
+                            Console.WriteLine("Något gick fel. Var god försök igen. ");
                         }
                     }
                     //Console.WriteLine("Välj enhet att konvertera från (feet, yards, miles): ");
@@ -445,7 +445,8 @@ namespace Projektuppgift
                             throw new ArgumentException("Ogiltig enhet");
                     }
                 }
-
+                
+            // Uträkningen för enhetskonverteringen tagen från https://www.rapidtables.com/convert/length/index.html
             double CentimeterToMeter(double Centimeter)
             {
                 return Centimeter / 100;
