@@ -35,7 +35,6 @@
                         vikt.Menu1();
                         break;
                     case 4:
-                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Ogiltigt val. Försök igen. ");
