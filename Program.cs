@@ -24,7 +24,7 @@
                 {
                     case 1:
                         Längd längd = new Längd();
-                        längd.LengthConv();
+                        längd.menuLengthConv1();
                         break;
                     case 2:
                         Temperatur temp = new Temperatur();
