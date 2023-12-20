@@ -9,18 +9,26 @@ namespace Projektuppgift
 {
     public class Längd
     {
-        public void LengthConv()
+        // Metod för huvudmenyn för längdkonvertering
+        public void menuLengthConv1()
         {
-            bool validInput = false;
-            bool menu1 = true;
-            bool menu2 = false;
-            int menuLength = 0;
-            int SImenuFrom = 0;
-            int SImenuTo = 0;
-            int USmenuFrom = 0;
-            int USmenuTo = 0;
-            while (menuLength != 3)
+            // Variabler för användarens input och konverteringsresultat
+            double answer;
+            double value;
+            int fromUnit;
+            int toUnit;
+            string SImenuFromInput = default;
+            string USmenuFromInput = default;
+            string fromUnitPrefix = default;
+            string toUnitPrefix = default;
+            int menuFrom = 0;
+            // Sökväg för att spara resultatfilen
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            
+            // Huvudloop för menyn
+            while (menuFrom != 3)
             {
+                // Skriver ut huvudmenyn
                 Console.WriteLine(
                     "----------Längd----------" +
                     "\nVilken enhet vill du konvertera från?" +
@@ -30,434 +38,413 @@ namespace Projektuppgift
                     "\n-----------------------\n"
                     );
 
+                // Läser användarens val
                 Console.Write("Ange ditt val: ");
-                menuLength = Convert.ToInt32(Console.ReadLine());
+                string menu1LengthInput = Console.ReadLine();
 
-                switch (menuLength)
+                // Validerar användarens input
+                while (!int.TryParse(menu1LengthInput, out menuFrom) || menuFrom > 3 || menuFrom < 1)
                 {
+                    Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
+                    menu1LengthInput = Console.ReadLine();
+                }
+
+                // Hanterar användarens val
+                switch (menuFrom)
+                {
+                    // Konverterar från SI-enheter
                     case 1:
-                        LengthConvSI();
+                        // Skriver ut menyn för SI-enheter
+                        Console.WriteLine(
+                            "-------------------------" +
+                            "\nVilken prefix har enheten som du vill konvertera från?" +
+                            "\n1.Centimeter" +
+                            "\n2.Meter" +
+                            "\n3.Kilometer" +
+                            "\n-----------------------\n"
+                            );
+
+                        // Läser användarens val för SI-enheter
+                        Console.Write("Ange ditt val: ");
+                        SImenuFromInput = Console.ReadLine();
+
+                        // Validerar användarens input
+                        while (!int.TryParse(SImenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
+                        {
+                            Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
+                            SImenuFromInput = Console.ReadLine();
+                        }
+
+                        // Hanterar val för SI-enheter
+                        switch (fromUnit)
+                        {
+                            case 1:
+                                fromUnitPrefix = "Centimeter";
+                                break;
+                            case 2:
+                                fromUnitPrefix = "Meter";
+                                break;
+                            case 3:
+                                fromUnitPrefix = "Kilometer";
+                                break;
+                            default:
+                                Console.WriteLine("Ogiltigt val. Försök igen. ");
+                                break;
+                        }
+                        // Går till nästa meny för att välja enhet att konvertera till
+                        menuLengthConv2();
                         break;
+                    // Konverterar från amerikanska enheter
                     case 2:
-                        LengthConvAmerican();
+                        // Skriver ut menyn för amerikanska enheter
+                        Console.WriteLine(
+                            "-------------------------" +
+                            "\nVilken prefix har enheten som du vill konvertera från?" +
+                            "\n1.Feet" +
+                            "\n2.Yards" +
+                            "\n3.Miles" +
+                            "\n-----------------------\n"
+                            );
+
+                        // Läser användarens val för amerikanska enheter
+                        Console.Write("Ange ditt val: ");
+                        USmenuFromInput = Console.ReadLine();
+
+                        // Validerar användarens input
+                        while (!int.TryParse(USmenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
+                        {
+                            Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
+                            USmenuFromInput = Console.ReadLine();
+                        }
+
+                        // Hanterar val för amerikanska enheter
+                        switch (fromUnit)
+                        {
+                            case 1:
+                                fromUnitPrefix = "Feet";
+                                break;
+                            case 2:
+                                fromUnitPrefix = "Yards";
+                                break;
+                            case 3:
+                                fromUnitPrefix = "Miles";
+                                break;
+                            default:
+                                Console.WriteLine("Ogiltigt val. Försök igen. ");
+                                break;
+                        }
+                        // Går till nästa meny för att välja enhet att konvertera till
+                        menuLengthConv2();
                         break;
+                    // Avslutar programmet
                     case 3:
                         break;
-                    default: Console.WriteLine("Ogiltigt val. Försök igen. ");
+                    // Ogiltigt val
+                    default:
+                        Console.WriteLine("Ogiltigt val. Försök igen. ");
                         break;
                 }
+            }
 
-                void LengthConvSI()
+            // Metod för att välja enhet att konvertera till
+            string menuLengthConv2()
+            {
+                // Skriver ut menyn för att välja enhet att konvertera till
+                Console.WriteLine(
+                    "-------------------------" +
+                    "\nVilken prefix har enheten som du vill konvertera till?" +
+                    "\n1.Centimeter" +
+                    "\n2.Meter" +
+                    "\n3.Kilometer" +
+                    "\n4.Feet" +
+                    "\n5.Yards" +
+                    "\n6.Miles" +
+                    "\n-----------------------\n"
+                    );
+
+                // Läser användarens val för enhet att konvertera till
+                Console.Write("Ange ditt val: ");
+                string menutoInput = Console.ReadLine();
+
+                // Validerar användarens input
+                while (!int.TryParse(menutoInput, out toUnit) || toUnit > 6 || toUnit < 1)
                 {
-                    string fromUnit = default;
-                    string toUnit = default;
-                    while (!validInput)
-                    {
-                        try
-                        {
-                            while (menu1)
-                            {
-                                Console.WriteLine(
-                                    "-------------------------" +
-                                    "\nVilken prefix har enheten som du vill konvertera från?" +
-                                    "\n1.cm" +
-                                    "\n2.m" +
-                                    "\n3.km" +
-                                    "\n-----------------------\n"
-                                    );
-
-                                Console.Write("Ange ditt val: ");
-                                SImenuFrom = Convert.ToInt32(Console.ReadLine());
-
-                                switch (SImenuFrom)
-                                {
-                                    case 1:
-                                        fromUnit = "cm";
-                                        menu2 = true;
-                                        break;
-                                    case 2:
-                                        fromUnit = "m";
-                                        menu2 = true;
-                                        break;
-                                    case 3:
-                                        fromUnit = "km";
-                                        menu2 = true;
-                                        break;
-                                    default:
-                                        Console.WriteLine("Ogiltigt val. Försök igen. ");
-                                        break;
-                                }
-                            }
-
-                            while (menu2)
-                            {
-                                Console.WriteLine(
-                                    "-------------------------" +
-                                    "\nVilken prefix har enheten som du vill konvertera till?" +
-                                    "\n1.cm" +
-                                    "\n2.m" +
-                                    "\n3.km" +
-                                    "\n4.Feet" +
-                                    "\n5.Yards" +
-                                    "\n6.Miles" +
-                                    "\n-----------------------\n"
-                                    );
-
-                                Console.Write("Ange ditt val: ");
-                                SImenuTo = Convert.ToInt32(Console.ReadLine());
-
-                                switch (SImenuTo)
-                                {
-                                    case 1:
-                                        toUnit = "cm";
-                                        break;
-                                    case 2:
-                                        toUnit = "m";
-                                        break;
-                                    case 3:
-                                        toUnit = "km";
-                                        break;
-                                    case 4:
-                                        toUnit = "Feet";
-                                        break;
-                                    case 5:
-                                        toUnit = "Yards";
-                                        break;
-                                    case 6:
-                                        toUnit = "Miles";
-                                        break;
-                                    default:
-                                        Console.WriteLine("Ogiltigt val. Försök igen. ");
-                                        break;
-                                }
-
-                                Console.WriteLine("Ange värdet: ");
-                                double value;
-
-                                while (!double.TryParse(Console.ReadLine(), out value))
-                                {
-                                    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                                }
-
-                                double convertedValue = ConvertLength(value, fromUnit, toUnit);
-                                Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
-                            }
-
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Felaktigt format. Var god försök igen. ");
-                        }
-                        catch (ArgumentException)
-                        {
-                            Console.WriteLine("Felaktig input. Var god försök igen. ");
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Något gick fel. Var god försök igen. ");
-                        }
-                    }
-
-                    //Console.WriteLine("Välj enhet att konvertera från (cm, m, km): ");
-                    //string fromUnit = Console.ReadLine() ?? "";
-                    //
-                    //Console.WriteLine("Ange värdet: ");
-                    //double value;
-                    //
-                    //while (!double.TryParse(Console.ReadLine(), out value))
-                    //{
-                    //    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                    //}
-                    //
-                    //Console.WriteLine("Välj enhet att konvertera till (cm, m, km, feet, yards, miles): ");
-                    //string toUnit = Console.ReadLine() ?? "";
-                    //
-                    //double convertedValue = ConvertLength(value, fromUnit, toUnit);
-                    //
-                    //Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
-                    //
-                    //while (!double.TryParse(Console.ReadLine(), out value))
-                    //{
-                    //    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                    //}
-                    //
-                    //Console.WriteLine("Vill du göra en annan konvertering? (ja/nej): ");
-                    //string anotherConversion = Console.ReadLine()?.ToLower() ?? "";
-                    //
-                    //if (anotherConversion == "ja")
-                    //{
-                    //    LengthConvSI();
-                    //}
-                    //
-                    //else 
-                    //{
-                    //    Environment.Exit(0);
-                    //}
+                    Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 6.");
+                    menutoInput = Console.ReadLine();
                 }
 
-                void LengthConvAmerican()
+                // Hanterar användarens val för enhet att konvertera till
+                switch (toUnit)
                 {
-                    string fromUnit = default;
-                    string toUnit = default;
-                    while (!validInput)
-                    {
-                        try
-                        {
-
-                            while (menu1)
-                            {
-                                Console.WriteLine(
-                                    "-------------------------" +
-                                    "\nVilken prefix har enheten som du vill konvertera från?" +
-                                    "\n1.foot" +
-                                    "\n2.yards" +
-                                    "\n3.miles" +
-                                    "\n-----------------------\n"
-                                    );
-
-                                Console.Write("Ange ditt val: ");
-                                USmenuFrom = Convert.ToInt32(Console.ReadLine());
-
-                                switch (USmenuFrom)
-                                {
-                                    case 1:
-                                        fromUnit = "foot";
-                                        break;
-                                    case 2:
-                                        fromUnit = "yards";
-                                        break;
-                                    case 3:
-                                        fromUnit = "miles";
-                                        break;
-                                    default:
-                                        Console.WriteLine("Ogiltigt val. Försök igen. ");
-                                        break;
-                                }
-                            }
-
-                            while (menu2)
-                            {
-                                Console.WriteLine(
-                                    "-------------------------" +
-                                    "\nVilken prefix har enheten som du vill konvertera till?" +
-                                    "\n1.cm" +
-                                    "\n2.m" +
-                                    "\n3.km" +
-                                    "\n4.Feet" +
-                                    "\n5.Yards" +
-                                    "\n6.Miles" +
-                                    "\n-----------------------\n"
-                                    );
-
-                                Console.Write("Ange ditt val: ");
-                                USmenuTo = Convert.ToInt32(Console.ReadLine());
-
-                                switch (USmenuTo)
-                                {
-                                    case 1:
-                                        toUnit = "cm";
-                                        break;
-                                    case 2:
-                                        toUnit = "m";
-                                        break;
-                                    case 3:
-                                        toUnit = "km";
-                                        break;
-                                    case 4:
-                                        toUnit = "Feet";
-                                        break;
-                                    case 5:
-                                        toUnit = "Yards";
-                                        break;
-                                    case 6:
-                                        toUnit = "Miles";
-                                        break;
-                                    default:
-                                        Console.WriteLine("Ogiltigt val. Försök igen. ");
-                                        break;
-                                }
-
-                                Console.WriteLine("Ange värdet: ");
-                                double value;
-
-                                while (!double.TryParse(Console.ReadLine(), out value))
-                                {
-                                    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                                }
-
-                                double convertedValue = ConvertLength(value, fromUnit, toUnit);
-                                Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Felaktigt format. Var god försök igen. ");
-                        }
-                        catch (ArgumentException)
-                        {
-                            Console.WriteLine("Felaktig input. Var god försök igen. ");
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Något gick fel. Var god försök igen. ");
-                        }
-                    }
-                    //Console.WriteLine("Välj enhet att konvertera från (feet, yards, miles): ");
-                    //string fromUnit = Console.ReadLine() ?? "";
-                    //
-                    //Console.WriteLine("Ange värdet: ");
-                    //double value;
-                    //
-                    //while (!double.TryParse(Console.ReadLine(), out value))
-                    //{
-                    //    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                    //}
-                    //
-                    //Console.WriteLine("Välj enhet att konvertera till (cm, m, km, feet, yards, miles): ");
-                    //string toUnit = Console.ReadLine() ?? "";
-                    //
-                    //double convertedValue = ConvertLength(value, fromUnit, toUnit);
-                    //
-                    //Console.WriteLine($"{value} {fromUnit} motsvarar {convertedValue} {toUnit}");
-                    //
-                    //while (!double.TryParse(Console.ReadLine(), out value))
-                    //{
-                    //    Console.WriteLine("Ogiltig inmatning. Försök igen. ");
-                    //}
-                    //
-                    //Console.WriteLine("Tryck Enter för att fortsätta programmet ");
-                    //Console.ReadKey();
+                    case 1:
+                        toUnitPrefix = "Centimeter";
+                        valueInput();
+                        break;
+                    case 2:
+                        toUnitPrefix = "Meter";
+                        valueInput();
+                        break;
+                    case 3:
+                        toUnitPrefix = "Kilometer";
+                        valueInput();
+                        break;
+                    case 4:
+                        toUnitPrefix = "Feet";
+                        valueInput();
+                        break;
+                    case 5:
+                        toUnitPrefix = "Yards";
+                        valueInput();
+                        break;
+                    case 6:
+                        toUnitPrefix = "Miles";
+                        valueInput();
+                        break;
+                    default:
+                        Console.WriteLine("Ogiltigt val. Försök igen. ");
+                        break;
                 }
+                return toUnitPrefix;
+            }
 
-                double ConvertLength(double value, string fromUnit, string toUnit)
+            // Metod för att mata in värdet som ska konverteras
+            void valueInput()
+            {
+                // Läser användarens input för värdet som ska konverteras
+                Console.Write($"Hur många {fromUnitPrefix} vill du omvandla?\nAnge värdet: ");
+                string valueInput = Console.ReadLine();
+
+                // Validerar användarens input
+                while (!double.TryParse(valueInput, out value))
                 {
-                    switch (fromUnit.ToLower())
-                    {
-                        case "cm":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return value;
-                                case "m":
-                                    return CentimeterToMeter(value);
-                                case "km":
-                                    return CentimeterToKilometer(value);
-                                case "feet":
-                                    return CentimeterToFoot(value);
-                                case "yards":
-                                    return CentimeterToYards(value);
-                                case "miles":
-                                    return CentimeterToMiles(value);
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        case "m":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return MeterToCentimeter(value);
-                                case "m":
-                                    return value;
-                                case "km":
-                                    return MeterToKilometer(value);
-                                case "feet":
-                                    return MeterToFoot(value);
-                                case "yards":
-                                    return MeterToYards(value);
-                                case "miles":
-                                    return MeterToMiles(value);
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        case "km":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return KilometerToCentimeter(value);
-                                case "m":
-                                    return KilometerToMeter(value);
-                                case "km":
-                                    return value;
-                                case "feet":
-                                    return KilometerToFoot(value);
-                                case "yards":
-                                    return KilometerToYards(value);
-                                case "miles":
-                                    return KilometerToMiles(value);
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        case "feet":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return FootToCentimeter(value);
-                                case "m":
-                                    return FootToMeter(value);
-                                case "km":
-                                    return FootToKilometer(value);
-                                case "feet":
-                                    return value;
-                                case "yards":
-                                    return FootToYards(value);
-                                case "miles":
-                                    return FootToMiles(value);
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        case "yards":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return YardsToCentimeter(value);
-                                case "m":
-                                    return YardsToMeter(value);
-                                case "km":
-                                    return YardsToKilometer(value);
-                                case "feet":
-                                    return YardsToFoot(value);
-                                case "yards":
-                                    return value;
-                                case "miles":
-                                    return YardsToMiles(value);
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        case "miles":
-                            switch (toUnit.ToLower())
-                            {
-                                case "cm":
-                                    return MilesToCentimeter(value);
-                                case "m":
-                                    return MilesToMeter(value);
-                                case "km":
-                                    return MilesToKilometer(value);
-                                case "feet":
-                                    return MilesToFoot(value);
-                                case "yards":
-                                    return MilesToYards(value);
-                                case "miles":
-                                    return value;
-                                default:
-                                    throw new ArgumentException("Ogiltig enhet");
-                            }
-                        default:
-                            throw new ArgumentException("Ogiltig enhet");
-                    }
+                    Console.WriteLine("Felaktig input, ange ett numeriskt värde.");
+                    valueInput = Console.ReadLine();
                 }
-                
-            // Uträkningen för enhetskonverteringen tagen från https://www.rapidtables.com/convert/length/index.html
+                // Beroende på enheten som konverteras från, anropa rätt metod för konvertering
+                if (fromUnitPrefix == "Centimeter")
+                {
+                    ConvertLengthSI();
+                }
+                else if (fromUnitPrefix == "Meter")
+                {
+                    ConvertLengthSI();
+                }
+                else if (fromUnitPrefix == "Kilometer")
+                {
+                    ConvertLengthSI();
+                }
+                else if (fromUnitPrefix == "Feet")
+                {
+                    ConvertLengthUS();
+                }
+                else if (fromUnitPrefix == "Yards")
+                {
+                    ConvertLengthUS();
+                }
+                else if (fromUnitPrefix == "Miles")
+                {
+                    ConvertLengthUS();
+                }
+            }
+
+            // Metod för att genomföra konvertering för SI-enheter
+            void ConvertLengthSI()
+            {
+                // Beroende på enheten som konverteras från och till, använd rätt konverteringsmetod
+                switch (fromUnitPrefix)
+                {
+                    case "Centimeter":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = value;
+                                break;
+                            case "Meter":
+                                answer = CentimeterToMeter(value);
+                                break;
+                            case "Kilometer":
+                                answer = CentimeterToKilometer(value);
+                                break;
+                            case "Feet":
+                                answer = CentimeterToFoot(value);
+                                break;
+                            case "Yards":
+                                answer = CentimeterToYards(value);
+                                break;
+                            case "Miles":
+                                answer = CentimeterToMiles(value);
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    case "Meter":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = MeterToCentimeter(value);
+                                break;
+                            case "Meter":
+                                answer = value;
+                                break;
+                            case "Kilometer":
+                                answer = MeterToKilometer(value);
+                                break;
+                            case "Feet":
+                                answer = MeterToFoot(value);
+                                break;
+                            case "Yards":
+                                answer = MeterToYards(value);
+                                break;
+                            case "Miles":
+                                answer = MeterToMiles(value);
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    case "Kilometer":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = KilometerToCentimeter(value);
+                                break;
+                            case "Meter":
+                                answer = KilometerToMeter(value);
+                                break;
+                            case "Kilometer":
+                                answer = value;
+                                break;
+                            case "Feet":
+                                answer = KilometerToFoot(value);
+                                break;
+                            case "Yards":
+                                answer = KilometerToYards(value);
+                                break;
+                            case "Miles":
+                                answer = KilometerToMiles(value);
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    default:
+                        throw new ArgumentException("Ogiltig enhet");
+                }
+                // Anropar funktionen för att visa resultatet
+                Answer();
+            }
+            // Metod för att genomföra konvertering för amerikanska enheter
+            void ConvertLengthUS()
+            {
+                // Beroende på enheten som konverteras från och till, använd rätt konverteringsmetod
+                switch (fromUnitPrefix)
+                {
+                    case "Feet":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = FootToCentimeter(value);
+                                break;
+                            case "Meter":
+                                answer = FootToMeter(value);
+                                break;
+                            case "Kilometer":
+                                answer = FootToKilometer(value);
+                                break;
+                            case "Feet":
+                                answer = value;
+                                break;
+                            case "Yards":
+                                answer = FootToYards(value);
+                                break;
+                            case "Miles":
+                                answer = FootToMiles(value);
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    case "Yards":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = YardsToCentimeter(value);
+                                break;
+                            case "Meter":
+                                answer = YardsToMeter(value);
+                                break;
+                            case "Kilometer":
+                                answer = YardsToKilometer(value);
+                                break;
+                            case "Feet":
+                                answer = YardsToFoot(value);
+                                break;
+                            case "Yards":
+                                answer = value;
+                                break;
+                            case "Miles":
+                                answer = YardsToMiles(value);
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    case "Miles":
+                        switch (toUnitPrefix)
+                        {
+                            case "Centimeter":
+                                answer = MilesToCentimeter(value);
+                                break;
+                            case "Meter":
+                                answer = MilesToMeter(value);
+                                break;
+                            case "Kilometer":
+                                answer = MilesToKilometer(value);
+                                break;
+                            case "Feet":
+                                answer = MilesToFoot(value);
+                                break;
+                            case "Yards":
+                                answer = MilesToYards(value);
+                                break;
+                            case "Miles":
+                                answer = value;
+                                break;
+                            default:
+                                throw new ArgumentException("Ogiltig enhet");
+                        }
+                        break;
+                    default:
+                        throw new ArgumentException("Ogiltig enhet");  
+                }
+                // Anropar funktionen för att visa resultatet
+                Answer();
+            }
+
+            // Metod för att visa konverteringsresultatet och spara det i en textfil
+            void Answer()
+            {
+                Console.WriteLine($"\n Svar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}\n");
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
+                {
+                    outputFile.WriteLine($"Svar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
+                }
+            }
+
+            // Metoder för olika konverteringsfunktioner (tagna från https://www.rapidtables.com/convert/length/index.html)
+            // Konverteringsfunktioner för SI-enheter
             double CentimeterToMeter(double Centimeter)
             {
                 return Centimeter / 100;
             }
             double CentimeterToKilometer(double Centimeter)
             {
-                return Centimeter * 100000;
+                return Centimeter / 100000;
             }
             double CentimeterToFoot(double Centimeter)
             {
-                return Centimeter / 2.54;
+                return Centimeter / 30.48;
             }
             double CentimeterToYards(double Centimeter)
             {
@@ -507,6 +494,7 @@ namespace Projektuppgift
             {
                 return KiloMeters / 1.609344;
             }
+            // Konverteringsfunktioner för amerikanska enheter
             double FootToCentimeter(double Foot)
             {
                 return Foot * 30.48;
@@ -557,7 +545,7 @@ namespace Projektuppgift
             }
             double MilesToKilometer(double Miles)
             {
-                return Miles * 1.60934;
+                return Miles * 1.609344;
             }
             double MilesToFoot(double Miles)
             {
@@ -566,7 +554,6 @@ namespace Projektuppgift
             double MilesToYards(double Miles)
             {
                 return Miles * 1760;
-            }
             }
         }
     }
