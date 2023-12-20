@@ -260,19 +260,19 @@ namespace Projektuppgift
                                 answer = value;
                                 break;
                             case "Meter":
-                                answer = CentimeterToMeter(value);
+                                answer = Math.Round(CentimeterToMeter(value), 2);
                                 break;
                             case "Kilometer":
-                                answer = CentimeterToKilometer(value);
+                                answer = Math.Round(CentimeterToKilometer(value), 15);
                                 break;
                             case "Feet":
-                                answer = CentimeterToFoot(value);
+                                answer = Math.Round(CentimeterToFoot(value), 9);
                                 break;
                             case "Yards":
-                                answer = CentimeterToYards(value);
+                                answer = Math.Round(CentimeterToYards(value), 9);
                                 break;
                             case "Miles":
-                                answer = CentimeterToMiles(value);
+                                answer = Math.Round(CentimeterToMiles(value), 15);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -282,22 +282,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = MeterToCentimeter(value);
+                                answer = Math.Round(MeterToCentimeter(value), 2);
                                 break;
                             case "Meter":
                                 answer = value;
                                 break;
                             case "Kilometer":
-                                answer = MeterToKilometer(value);
+                                answer = Math.Round(MeterToKilometer(value), 3);
                                 break;
                             case "Feet":
-                                answer = MeterToFoot(value);
+                                answer = Math.Round(MeterToFoot(value), 9);
                                 break;
                             case "Yards":
-                                answer = MeterToYards(value);
+                                answer = Math.Round(MeterToYards(value), 10);
                                 break;
                             case "Miles":
-                                answer = MeterToMiles(value);
+                                answer = Math.Round(MeterToMiles(value), 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -307,22 +307,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = KilometerToCentimeter(value);
+                                answer = Math.Round(KilometerToCentimeter(value), 2);
                                 break;
                             case "Meter":
-                                answer = KilometerToMeter(value);
+                                answer = Math.Round(KilometerToMeter(value), 2);
                                 break;
                             case "Kilometer":
                                 answer = value;
                                 break;
                             case "Feet":
-                                answer = KilometerToFoot(value);
+                                answer = Math.Round(KilometerToFoot(value), 2);
                                 break;
                             case "Yards":
-                                answer = KilometerToYards(value);
+                                answer = Math.Round(KilometerToYards(value), 10);
                                 break;
                             case "Miles":
-                                answer = KilometerToMiles(value);
+                                answer = Math.Round(KilometerToMiles(value), 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -344,22 +344,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = FootToCentimeter(value);
+                                answer = Math.Round(FootToCentimeter(value), 2);
                                 break;
                             case "Meter":
-                                answer = FootToMeter(value);
+                                answer = Math.Round(FootToMeter(value), 4);
                                 break;
                             case "Kilometer":
-                                answer = FootToKilometer(value);
+                                answer = Math.Round(FootToKilometer(value), 7);
                                 break;
                             case "Feet":
                                 answer = value;
                                 break;
                             case "Yards":
-                                answer = FootToYards(value);
+                                answer = Math.Round(FootToYards(value), 10);
                                 break;
                             case "Miles":
-                                answer = FootToMiles(value);
+                                answer = Math.Round(FootToMiles(value), 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -369,22 +369,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = YardsToCentimeter(value);
+                                answer = Math.Round(YardsToCentimeter(value), 2);
                                 break;
                             case "Meter":
-                                answer = YardsToMeter(value);
+                                answer = Math.Round(YardsToMeter(value), 4);
                                 break;
                             case "Kilometer":
-                                answer = YardsToKilometer(value);
+                                answer = Math.Round(YardsToKilometer(value), 7);
                                 break;
                             case "Feet":
-                                answer = YardsToFoot(value);
+                                answer = Math.Round(YardsToFoot(value), 2);
                                 break;
                             case "Yards":
                                 answer = value;
                                 break;
                             case "Miles":
-                                answer = YardsToMiles(value);
+                                answer = Math.Round(YardsToMiles(value), 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -394,19 +394,19 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = MilesToCentimeter(value);
+                                answer = Math.Round(MilesToCentimeter(value), 2);
                                 break;
                             case "Meter":
-                                answer = MilesToMeter(value);
+                                answer = Math.Round(MilesToMeter(value), 3);
                                 break;
                             case "Kilometer":
-                                answer = MilesToKilometer(value);
+                                answer = Math.Round(MilesToKilometer(value), 6);
                                 break;
                             case "Feet":
-                                answer = MilesToFoot(value);
+                                answer = Math.Round(MilesToFoot(value), 2);
                                 break;
                             case "Yards":
-                                answer = MilesToYards(value);
+                                answer = Math.Round(MilesToYards(value), 2);
                                 break;
                             case "Miles":
                                 answer = value;
