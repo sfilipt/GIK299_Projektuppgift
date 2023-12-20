@@ -35,17 +35,17 @@ namespace Projektuppgift
                     "\n1.SI-enheter" +
                     "\n2.Amerikanska enheter" +
                     "\n3.Avsluta längd konverteraren" +
-                    "\n-----------------------\n"
+                    "\n-----------------------"
                     );
 
                 // Läser användarens val
-                Console.Write("Ange ditt val: ");
+                Console.Write("\nAnge ditt val: ");
                 string menu1LengthInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!int.TryParse(menu1LengthInput, out menuFrom) || menuFrom > 3 || menuFrom < 1)
                 {
-                    Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
+                    Console.WriteLine("\nFelaktig input, skriv in en siffra mellan 1 och 3.");
                     menu1LengthInput = Console.ReadLine();
                 }
 
@@ -61,17 +61,17 @@ namespace Projektuppgift
                             "\n1.Centimeter" +
                             "\n2.Meter" +
                             "\n3.Kilometer" +
-                            "\n-----------------------\n"
+                            "\n-----------------------"
                             );
 
                         // Läser användarens val för SI-enheter
-                        Console.Write("Ange ditt val: ");
+                        Console.Write("\nAnge ditt val: ");
                         SImenuFromInput = Console.ReadLine();
 
                         // Validerar användarens input
                         while (!int.TryParse(SImenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
                         {
-                            Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
+                            Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
                             SImenuFromInput = Console.ReadLine();
                         }
 
@@ -88,7 +88,7 @@ namespace Projektuppgift
                                 fromUnitPrefix = "Kilometer";
                                 break;
                             default:
-                                Console.WriteLine("Ogiltigt val. Försök igen. ");
+                                Console.WriteLine("\nOgiltigt val. Försök igen. ");
                                 break;
                         }
                         // Går till nästa meny för att välja enhet att konvertera till
@@ -103,17 +103,17 @@ namespace Projektuppgift
                             "\n1.Feet" +
                             "\n2.Yards" +
                             "\n3.Miles" +
-                            "\n-----------------------\n"
+                            "\n-----------------------"
                             );
 
                         // Läser användarens val för amerikanska enheter
-                        Console.Write("Ange ditt val: ");
+                        Console.Write("\nAnge ditt val: ");
                         USmenuFromInput = Console.ReadLine();
 
                         // Validerar användarens input
                         while (!int.TryParse(USmenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
                         {
-                            Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
+                            Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
                             USmenuFromInput = Console.ReadLine();
                         }
 
@@ -130,7 +130,7 @@ namespace Projektuppgift
                                 fromUnitPrefix = "Miles";
                                 break;
                             default:
-                                Console.WriteLine("Ogiltigt val. Försök igen. ");
+                                Console.WriteLine("\nOgiltigt val. Försök igen. ");
                                 break;
                         }
                         // Går till nästa meny för att välja enhet att konvertera till
@@ -141,7 +141,7 @@ namespace Projektuppgift
                         break;
                     // Ogiltigt val
                     default:
-                        Console.WriteLine("Ogiltigt val. Försök igen. ");
+                        Console.WriteLine("\nOgiltigt val. Försök igen. ");
                         break;
                 }
             }
@@ -159,17 +159,17 @@ namespace Projektuppgift
                     "\n4.Feet" +
                     "\n5.Yards" +
                     "\n6.Miles" +
-                    "\n-----------------------\n"
+                    "\n-----------------------"
                     );
 
                 // Läser användarens val för enhet att konvertera till
-                Console.Write("Ange ditt val: ");
+                Console.Write("\nAnge ditt val: ");
                 string menutoInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!int.TryParse(menutoInput, out toUnit) || toUnit > 6 || toUnit < 1)
                 {
-                    Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 6.");
+                    Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 6.");
                     menutoInput = Console.ReadLine();
                 }
 
@@ -201,7 +201,7 @@ namespace Projektuppgift
                         valueInput();
                         break;
                     default:
-                        Console.WriteLine("Ogiltigt val. Försök igen. ");
+                        Console.WriteLine("\nOgiltigt val. Försök igen. ");
                         break;
                 }
                 return toUnitPrefix;
@@ -211,13 +211,14 @@ namespace Projektuppgift
             void valueInput()
             {
                 // Läser användarens input för värdet som ska konverteras
-                Console.Write($"Hur många {fromUnitPrefix} vill du omvandla?\nAnge värdet: ");
+                Console.WriteLine($"\nHur många {fromUnitPrefix} vill du omvandla?");
+                Console.Write("\nAnge värdet: ");
                 string valueInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!double.TryParse(valueInput, out value))
                 {
-                    Console.WriteLine("Felaktig input, ange ett numeriskt värde.");
+                    Console.WriteLine("\nFelaktig input, ange ett numeriskt värde.");
                     valueInput = Console.ReadLine();
                 }
                 // Beroende på enheten som konverteras från, anropa rätt metod för konvertering
@@ -275,7 +276,7 @@ namespace Projektuppgift
                                 answer = Math.Round(CentimeterToMiles(value), 15);
                                 break;
                             default:
-                                throw new ArgumentException("Ogiltig enhet");
+                                throw new ArgumentException("\nOgiltig enhet");
                         }
                         break;
                     case "Meter":
@@ -300,7 +301,7 @@ namespace Projektuppgift
                                 answer = Math.Round(MeterToMiles(value), 10);
                                 break;
                             default:
-                                throw new ArgumentException("Ogiltig enhet");
+                                throw new ArgumentException("\nOgiltig enhet");
                         }
                         break;
                     case "Kilometer":
@@ -325,11 +326,11 @@ namespace Projektuppgift
                                 answer = Math.Round(KilometerToMiles(value), 10);
                                 break;
                             default:
-                                throw new ArgumentException("Ogiltig enhet");
+                                throw new ArgumentException("\nOgiltig enhet");
                         }
                         break;
                     default:
-                        throw new ArgumentException("Ogiltig enhet");
+                        throw new ArgumentException("\nOgiltig enhet");
                 }
                 // Anropar funktionen för att visa resultatet
                 Answer();
@@ -412,11 +413,11 @@ namespace Projektuppgift
                                 answer = value;
                                 break;
                             default:
-                                throw new ArgumentException("Ogiltig enhet");
+                                throw new ArgumentException("\nOgiltig enhet");
                         }
                         break;
                     default:
-                        throw new ArgumentException("Ogiltig enhet");  
+                        throw new ArgumentException("\nOgiltig enhet");  
                 }
                 // Anropar funktionen för att visa resultatet
                 Answer();
@@ -425,10 +426,10 @@ namespace Projektuppgift
             // Metod för att visa konverteringsresultatet och spara det i en textfil
             void Answer()
             {
-                Console.WriteLine($"\n Svar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}\n");
+                Console.WriteLine($"\nSvar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
                 {
-                    outputFile.WriteLine($"Svar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
+                    outputFile.WriteLine($"\nSvar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
                 }
             }
 
