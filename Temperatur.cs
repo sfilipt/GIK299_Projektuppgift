@@ -17,6 +17,7 @@ namespace Projektuppgift
             double answer = 0;
             string unit = default;
             string outputUnit = default;
+            //Strängen docPath anger vart resultetet av konverteringen ska sparas.
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 4)
             {
@@ -28,6 +29,7 @@ namespace Projektuppgift
                              "\n4. Gå tillbaka till föregående meny." +
                              "\n---------------------------------\n");
                 string menu1ChoiceInput = Console.ReadLine();
+                // While-loop som sköter felaktig input från användaren. Denna återanvänds i lite olika utförande för all användarinput.
                 while (string.IsNullOrWhiteSpace(menu1ChoiceInput) || !int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 4 || menu1Choice < 1)
                 {
                     Console.WriteLine("Fel: Skriv in en siffra mellan 1 och 3.");
@@ -180,7 +182,6 @@ namespace Projektuppgift
                 return outputUnit;
             }
             //Metoder som sköter omvandling mellan olika temperaturenheter
-            //Omvandlingsformler tagna från: https://www.metric-conversions.org/
             double SIToSI()
             {
                 Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
@@ -300,8 +301,10 @@ namespace Projektuppgift
                 return answer;
 
             }
+            //Metod som skriver ut svaret i konsolen och sparar resultatet av konverteringen till en fil.
             void Answer()
             {
+                answer = Math.Round(answer, 3);
                 Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputUnit}\n");
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
                 {
