@@ -26,12 +26,12 @@ namespace Projektuppgift
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 3)
             {
-                Console.WriteLine("\n-----------------------------------\n" +
+                Console.WriteLine("\n--------------Vikt---------------------\n" +
                              "Vilken enhet vill du konvertera från?" +
                              "\n1. SI-enhet." +
                              "\n2. Amerikansk enheter." +
                              "\n3. Gå tillbaka till föregående meny." +
-                             "\n---------------------------------\n");
+                             "\n---------------------------------------\n");
                 string menu1ChoiceInput = Console.ReadLine();
                 // While-loop som sköter felaktig input från användaren. Denna återanvänds i lite olika utförande för all användarinput.
                 while (!int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 3 || menu1Choice < 1)

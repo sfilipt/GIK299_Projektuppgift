@@ -21,13 +21,13 @@ namespace Projektuppgift
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 4)
             {
-                Console.WriteLine("\n-----------------------------------\n" +
+                Console.WriteLine("\n--------------Temperatur---------------------\n" +
                              "Vilken temperaturenhet vill du konvertera från?" +
                              "\n1. SI-enhet, (Kelvin,K)." +
                              "\n2. Fahrenheit (°F)." +
                              "\n3. Celsius (°C)" +
                              "\n4. Gå tillbaka till föregående meny." +
-                             "\n---------------------------------\n");
+                             "\n---------------------------------------------\n");
                 string menu1ChoiceInput = Console.ReadLine();
                 // While-loop som sköter felaktig input från användaren. Denna återanvänds i lite olika utförande för all användarinput.
                 while (string.IsNullOrWhiteSpace(menu1ChoiceInput) || !int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 4 || menu1Choice < 1)
