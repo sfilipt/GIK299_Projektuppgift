@@ -48,9 +48,9 @@ namespace Projektuppgift
                             {
                                 Console.WriteLine("\n-------------------------------------------\n " +
                                 "\nVilket prefix har enheten du vill omvandla från?" +
-                                "\n 1. Gram" +
-                                "\n 2. Kilogram" +
-                                "\n 3. Ton" +
+                                "\n1. Gram" +
+                                "\n2. Kilogram" +
+                                "\n3. Ton" +
                                 "\n-------------------------------------------\n");
                                 string strInputPrefix = Console.ReadLine();
                                 while (!int.TryParse(strInputPrefix, out inputPrefix) || inputPrefix > 3 || inputPrefix < 1)
@@ -227,7 +227,8 @@ namespace Projektuppgift
             //Metoder som utför omvandlingsberäkningar, 
             double SIToAmerican()
             {
-                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while(!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -293,7 +294,8 @@ namespace Projektuppgift
             }
             double AmericanToSI()
             {
-                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -359,7 +361,8 @@ namespace Projektuppgift
             }
             double AmericanToAmerican()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -422,7 +425,8 @@ namespace Projektuppgift
             }
             double SIToSI()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {

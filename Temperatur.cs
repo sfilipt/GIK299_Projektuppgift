@@ -184,7 +184,8 @@ namespace Projektuppgift
             //Metoder som sköter omvandling mellan olika temperaturenheter
             double SIToSI()
             {
-                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -197,7 +198,8 @@ namespace Projektuppgift
             }
             double SIToFahrenheit()
             {
-                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -210,7 +212,8 @@ namespace Projektuppgift
             }
             double SIToCelsius()
             {
-                Console.WriteLine($"\n Hur många {unit} vill du omvandla?\n");
+                Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
@@ -224,7 +227,8 @@ namespace Projektuppgift
             }
             double FahrenheitToSI()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -459.67)
                 {
@@ -238,7 +242,8 @@ namespace Projektuppgift
             }
             double FahrenheitToFahrenheit()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -459.67)
                 {
@@ -251,7 +256,8 @@ namespace Projektuppgift
             }
             double FahrenheitToCelsius()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -459.67)
                 {
@@ -264,7 +270,8 @@ namespace Projektuppgift
             }
             double CelsiusToSI()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -273.15)
                 {
@@ -277,7 +284,8 @@ namespace Projektuppgift
             }
             double CelsiusToFahrenheit()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -273.15)
                 {
@@ -290,7 +298,8 @@ namespace Projektuppgift
             }
             double CelsiusToCelsius()
             {
-                Console.WriteLine($"\n Hur många  {unit}  vill du omvandla?\n");
+                Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
+                Console.Write("Ange värdet:");
                 string strAmountToConvert = Console.ReadLine();
                 while (string.IsNullOrWhiteSpace(strAmountToConvert) || !double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < -273.15)
                 {
