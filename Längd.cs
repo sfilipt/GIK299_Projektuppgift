@@ -10,7 +10,7 @@ namespace Projektuppgift
     public class Längd
     {
         // Metod för huvudmenyn för längdkonvertering
-        public void menuLengthConv1()
+        public void Menu1()
         {
             // Variabler för användarens input och konverteringsresultat
             double answer;
@@ -92,7 +92,7 @@ namespace Projektuppgift
                                 break;
                         }
                         // Går till nästa meny för att välja enhet att konvertera till
-                        menuLengthConv2();
+                        Menu2();
                         break;
                     // Konverterar från amerikanska enheter
                     case 2:
@@ -134,7 +134,7 @@ namespace Projektuppgift
                                 break;
                         }
                         // Går till nästa meny för att välja enhet att konvertera till
-                        menuLengthConv2();
+                        Menu2();
                         break;
                     // Avslutar programmet
                     case 3:
@@ -147,7 +147,7 @@ namespace Projektuppgift
             }
 
             // Metod för att välja enhet att konvertera till
-            string menuLengthConv2()
+            string Menu2()
             {
                 // Skriver ut menyn för att välja enhet att konvertera till
                 Console.WriteLine(
@@ -249,10 +249,10 @@ namespace Projektuppgift
                 }
             }
 
-            // Metod för att genomföra konvertering för SI-enheter
+            // Metod för att genomföra konvertering för SI-enheter (tagna från https://www.rapidtables.com/convert/length/index.html)
             void ConvertLengthSI()
             {
-                // Beroende på enheten som konverteras från och till, använd rätt konverteringsmetod
+                // Beroende på enheten som konverteras från och till, används rätt konverteringsmetod
                 switch (fromUnitPrefix)
                 {
                     case "Centimeter":
@@ -262,19 +262,19 @@ namespace Projektuppgift
                                 answer = value;
                                 break;
                             case "Meter":
-                                answer = Math.Round(CentimeterToMeter(value), 2);
+                                answer = Math.Round(value / 100, 2);
                                 break;
                             case "Kilometer":
-                                answer = Math.Round(CentimeterToKilometer(value), 15);
+                                answer = Math.Round(value / 100000, 15);
                                 break;
                             case "Feet":
-                                answer = Math.Round(CentimeterToFoot(value), 9);
+                                answer = Math.Round(value / 30.48, 9);
                                 break;
                             case "Yards":
-                                answer = Math.Round(CentimeterToYards(value), 9);
+                                answer = Math.Round(value / 91.44, 9);
                                 break;
                             case "Miles":
-                                answer = Math.Round(CentimeterToMiles(value), 15);
+                                answer = Math.Round(value / 160934.4, 15);
                                 break;
                             default:
                                 throw new ArgumentException("\nOgiltig enhet");
@@ -284,22 +284,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = Math.Round(MeterToCentimeter(value), 2);
+                                answer = Math.Round(value * 100, 2);
                                 break;
                             case "Meter":
                                 answer = value;
                                 break;
                             case "Kilometer":
-                                answer = Math.Round(MeterToKilometer(value), 3);
+                                answer = Math.Round(value / 1000, 3);
                                 break;
                             case "Feet":
-                                answer = Math.Round(MeterToFoot(value), 9);
+                                answer = Math.Round(value / 0.3048, 9);
                                 break;
                             case "Yards":
-                                answer = Math.Round(MeterToYards(value), 10);
+                                answer = Math.Round(value / 0.9144, 10);
                                 break;
                             case "Miles":
-                                answer = Math.Round(MeterToMiles(value), 10);
+                                answer = Math.Round(value / 1609.344, 10);
                                 break;
                             default:
                                 throw new ArgumentException("\nOgiltig enhet");
@@ -309,22 +309,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = Math.Round(KilometerToCentimeter(value), 2);
+                                answer = Math.Round(value * 100000, 2);
                                 break;
                             case "Meter":
-                                answer = Math.Round(KilometerToMeter(value), 2);
+                                answer = Math.Round(value * 1000, 2);
                                 break;
                             case "Kilometer":
                                 answer = value;
                                 break;
                             case "Feet":
-                                answer = Math.Round(KilometerToFoot(value), 2);
+                                answer = Math.Round(value * 3280.84, 2);
                                 break;
                             case "Yards":
-                                answer = Math.Round(KilometerToYards(value), 10);
+                                answer = Math.Round(value / 0.0009144, 10);
                                 break;
                             case "Miles":
-                                answer = Math.Round(KilometerToMiles(value), 10);
+                                answer = Math.Round(value / 1.609344, 10);
                                 break;
                             default:
                                 throw new ArgumentException("\nOgiltig enhet");
@@ -336,32 +336,32 @@ namespace Projektuppgift
                 // Anropar funktionen för att visa resultatet
                 Answer();
             }
-            // Metod för att genomföra konvertering för amerikanska enheter
+            // Metod för att genomföra konvertering för amerikanska enheter (tagna från https://www.rapidtables.com/convert/length/index.html)
             void ConvertLengthUS()
             {
-                // Beroende på enheten som konverteras från och till, använd rätt konverteringsmetod
+                // Beroende på enheten som konverteras från och till, används rätt konverteringsmetod
                 switch (fromUnitPrefix)
                 {
                     case "Feet":
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = Math.Round(FootToCentimeter(value), 2);
+                                answer = Math.Round(value * 30.48, 2);
                                 break;
                             case "Meter":
-                                answer = Math.Round(FootToMeter(value), 4);
+                                answer = Math.Round(value * 0.3048, 4);
                                 break;
                             case "Kilometer":
-                                answer = Math.Round(FootToKilometer(value), 7);
+                                answer = Math.Round(value / 3280.84, 7);
                                 break;
                             case "Feet":
                                 answer = value;
                                 break;
                             case "Yards":
-                                answer = Math.Round(FootToYards(value), 10);
+                                answer = Math.Round(value / 3, 10);
                                 break;
                             case "Miles":
-                                answer = Math.Round(FootToMiles(value), 10);
+                                answer = Math.Round(value / 5280, 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -371,22 +371,22 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = Math.Round(YardsToCentimeter(value), 2);
+                                answer = Math.Round(value * 91.44, 2);
                                 break;
                             case "Meter":
-                                answer = Math.Round(YardsToMeter(value), 4);
+                                answer = Math.Round(value * 0.9144, 4);
                                 break;
                             case "Kilometer":
-                                answer = Math.Round(YardsToKilometer(value), 7);
+                                answer = Math.Round(value * 0.0009144, 7);
                                 break;
                             case "Feet":
-                                answer = Math.Round(YardsToFoot(value), 2);
+                                answer = Math.Round(value * 3, 2);
                                 break;
                             case "Yards":
                                 answer = value;
                                 break;
                             case "Miles":
-                                answer = Math.Round(YardsToMiles(value), 10);
+                                answer = Math.Round(value / 1760, 10);
                                 break;
                             default:
                                 throw new ArgumentException("Ogiltig enhet");
@@ -396,19 +396,19 @@ namespace Projektuppgift
                         switch (toUnitPrefix)
                         {
                             case "Centimeter":
-                                answer = Math.Round(MilesToCentimeter(value), 2);
+                                answer = Math.Round(value * 160934.4, 2);
                                 break;
                             case "Meter":
-                                answer = Math.Round(MilesToMeter(value), 3);
+                                answer = Math.Round(value * 1609.344, 3);
                                 break;
                             case "Kilometer":
-                                answer = Math.Round(MilesToKilometer(value), 6);
+                                answer = Math.Round(value * 1.609344, 6);
                                 break;
                             case "Feet":
-                                answer = Math.Round(MilesToFoot(value), 2);
+                                answer = Math.Round(value * 5280, 2);
                                 break;
                             case "Yards":
-                                answer = Math.Round(MilesToYards(value), 2);
+                                answer = Math.Round(value * 1760, 2);
                                 break;
                             case "Miles":
                                 answer = value;
@@ -432,130 +432,6 @@ namespace Projektuppgift
                 {
                     outputFile.WriteLine($"\nSvar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
                 }
-            }
-
-            // Metoder för olika konverteringsfunktioner (tagna från https://www.rapidtables.com/convert/length/index.html)
-            // Konverteringsfunktioner för SI-enheter
-            double CentimeterToMeter(double Centimeter)
-            {
-                return Centimeter / 100;
-            }
-            double CentimeterToKilometer(double Centimeter)
-            {
-                return Centimeter / 100000;
-            }
-            double CentimeterToFoot(double Centimeter)
-            {
-                return Centimeter / 30.48;
-            }
-            double CentimeterToYards(double Centimeter)
-            {
-                return Centimeter / 91.44;
-            }
-            double CentimeterToMiles(double Centimeter)
-            {
-                return Centimeter / 160934.4;
-            }
-            double MeterToCentimeter(double Meters)
-            {
-                return Meters * 100;
-            }
-            double MeterToKilometer(double Meters)
-            {
-                return Meters / 1000;
-            }
-            double MeterToFoot(double Meters)
-            {
-                return Meters / 0.3048;
-            }
-            double MeterToYards(double Meters)
-            {
-                return Meters / 0.9144;
-            }
-            double MeterToMiles(double Meters)
-            {
-                return Meters / 1609.344;
-            }
-            double KilometerToCentimeter(double KiloMeters)
-            {
-                return KiloMeters * 100000;
-            }
-            double KilometerToMeter(double KiloMeters)
-            {
-                return KiloMeters * 1000;
-            }
-            double KilometerToFoot(double KiloMeters)
-            {
-                return KiloMeters * 3280.84;
-            }
-            double KilometerToYards(double KiloMeters)
-            {
-                return KiloMeters / 0.0009144;
-            }
-            double KilometerToMiles(double KiloMeters)
-            {
-                return KiloMeters / 1.609344;
-            }
-            // Konverteringsfunktioner för amerikanska enheter
-            double FootToCentimeter(double Foot)
-            {
-                return Foot * 30.48;
-            }
-            double FootToMeter(double Foot)
-            {
-                return Foot * 0.3048;
-            }
-            double FootToKilometer(double Foot)
-            {
-                return Foot / 3280.84;
-            }
-            double FootToYards(double Foot)
-            {
-                return Foot / 3;
-            }
-            double FootToMiles(double Foot)
-            {
-                return Foot / 5280;
-            }
-            double YardsToCentimeter(double Yard)
-            {
-                return Yard * 91.44;
-            }
-            double YardsToMeter(double Yard)
-            {
-                return Yard * 0.9144;
-            }
-            double YardsToKilometer(double Yard)
-            {
-                return Yard * 0.0009144;
-            }
-            double YardsToFoot(double Yard)
-            {
-                return Yard * 3;
-            }
-            double YardsToMiles(double Yard)
-            {
-                return Yard / 1760;
-            }
-            double MilesToCentimeter(double Miles)
-            {
-                return Miles * 160934.4;
-            }
-            double MilesToMeter(double Miles)
-            {
-                return Miles * 1609.344;
-            }
-            double MilesToKilometer(double Miles)
-            {
-                return Miles * 1.609344;
-            }
-            double MilesToFoot(double Miles)
-            {
-                return Miles * 5280;
-            }
-            double MilesToYards(double Miles)
-            {
-                return Miles * 1760;
             }
         }
     }
