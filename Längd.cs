@@ -216,9 +216,10 @@ namespace Projektuppgift
                 string? valueInput = Console.ReadLine();
 
                 // Validerar användarens input
-                while (!double.TryParse(valueInput, out value))
+                while (!double.TryParse(valueInput, out value) || value < 0)
                 {
-                    Console.WriteLine("\nFelaktig input, ange ett numeriskt värde.");
+                    Console.WriteLine("\nFelaktig input, ange ett numeriskt värde som är större än 0.");
+                    Console.Write("\nAnge värdet: ");
                     valueInput = Console.ReadLine();
                 }
                 // Beroende på enheten som konverteras från, anropa rätt metod för konvertering
