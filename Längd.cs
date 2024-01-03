@@ -17,10 +17,10 @@ namespace Projektuppgift
             double value;
             int fromUnit;
             int toUnit;
-            string SImenuFromInput = default;
-            string USmenuFromInput = default;
-            string fromUnitPrefix = default;
-            string toUnitPrefix = default;
+            string? SImenuFromInput = default;
+            string? USmenuFromInput = default;
+            string? fromUnitPrefix = default;
+            string? toUnitPrefix = default;
             int menuFrom = 0;
             // Sökväg för att spara resultatfilen
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -34,13 +34,13 @@ namespace Projektuppgift
                     "\nVilken enhet vill du konvertera från?" +
                     "\n1.SI-enheter" +
                     "\n2.Amerikanska enheter" +
-                    "\n3.Avsluta längd konverteraren" +
+                    "\n3.Gå tillbaka till föregående meny." +
                     "\n-----------------------"
                     );
 
                 // Läser användarens val
                 Console.Write("\nAnge ditt val: ");
-                string menu1LengthInput = Console.ReadLine();
+                string? menu1LengthInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!int.TryParse(menu1LengthInput, out menuFrom) || menuFrom > 3 || menuFrom < 1)
@@ -164,7 +164,7 @@ namespace Projektuppgift
 
                 // Läser användarens val för enhet att konvertera till
                 Console.Write("\nAnge ditt val: ");
-                string menutoInput = Console.ReadLine();
+                string? menutoInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!int.TryParse(menutoInput, out toUnit) || toUnit > 6 || toUnit < 1)
@@ -213,7 +213,7 @@ namespace Projektuppgift
                 // Läser användarens input för värdet som ska konverteras
                 Console.WriteLine($"\nHur många {fromUnitPrefix} vill du omvandla?");
                 Console.Write("\nAnge värdet: ");
-                string valueInput = Console.ReadLine();
+                string? valueInput = Console.ReadLine();
 
                 // Validerar användarens input
                 while (!double.TryParse(valueInput, out value))
