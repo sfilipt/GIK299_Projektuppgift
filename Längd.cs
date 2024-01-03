@@ -30,12 +30,12 @@ namespace Projektuppgift
             {
                 // Skriver ut huvudmenyn
                 Console.WriteLine(
-                    "----------Längd----------" +
+                    "-------------------Längd-------------------" +
                     "\nVilken enhet vill du konvertera från?" +
                     "\n1.SI-enheter" +
                     "\n2.Amerikanska enheter" +
                     "\n3.Gå tillbaka till föregående meny." +
-                    "\n-----------------------"
+                    "\n-------------------------------------------"
                     );
 
                 // Läser användarens val
@@ -56,12 +56,12 @@ namespace Projektuppgift
                     case 1:
                         // Skriver ut menyn för SI-enheter
                         Console.WriteLine(
-                            "-------------------------" +
+                            "-------------------------------------------" +
                             "\nVilken prefix har enheten som du vill konvertera från?" +
                             "\n1.Centimeter" +
                             "\n2.Meter" +
                             "\n3.Kilometer" +
-                            "\n-----------------------"
+                            "\n-------------------------------------------"
                             );
 
                         // Läser användarens val för SI-enheter
@@ -98,12 +98,12 @@ namespace Projektuppgift
                     case 2:
                         // Skriver ut menyn för amerikanska enheter
                         Console.WriteLine(
-                            "-------------------------" +
+                            "-------------------------------------------" +
                             "\nVilken prefix har enheten som du vill konvertera från?" +
                             "\n1.Feet" +
                             "\n2.Yards" +
                             "\n3.Miles" +
-                            "\n-----------------------"
+                            "\n-------------------------------------------"
                             );
 
                         // Läser användarens val för amerikanska enheter
@@ -151,7 +151,7 @@ namespace Projektuppgift
             {
                 // Skriver ut menyn för att välja enhet att konvertera till
                 Console.WriteLine(
-                    "-------------------------" +
+                    "-------------------------------------------" +
                     "\nVilken prefix har enheten som du vill konvertera till?" +
                     "\n1.Centimeter" +
                     "\n2.Meter" +
@@ -159,7 +159,7 @@ namespace Projektuppgift
                     "\n4.Feet" +
                     "\n5.Yards" +
                     "\n6.Miles" +
-                    "\n-----------------------"
+                    "\n-------------------------------------------"
                     );
 
                 // Läser användarens val för enhet att konvertera till
