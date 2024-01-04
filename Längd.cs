@@ -182,27 +182,27 @@ namespace Projektuppgift
                 {
                     case 1:
                         toUnitPrefix = "Centimeter";
-                        valueInput();
+                        ValueInput();
                         break;
                     case 2:
                         toUnitPrefix = "Meter";
-                        valueInput();
+                        ValueInput();
                         break;
                     case 3:
                         toUnitPrefix = "Kilometer";
-                        valueInput();
+                        ValueInput();
                         break;
                     case 4:
                         toUnitPrefix = "Feet";
-                        valueInput();
+                        ValueInput();
                         break;
                     case 5:
                         toUnitPrefix = "Yards";
-                        valueInput();
+                        ValueInput();
                         break;
                     case 6:
                         toUnitPrefix = "Miles";
-                        valueInput();
+                        ValueInput();
                         break;
                     default:
                         Console.WriteLine("\nOgiltigt val. Försök igen. ");
@@ -212,7 +212,7 @@ namespace Projektuppgift
             }
 
             // Metod för att mata in värdet som ska konverteras
-            void valueInput()
+            void ValueInput()
             {
                 // Läser användarens input för värdet som ska konverteras
                 Console.WriteLine($"\nHur många {fromUnitPrefix} vill du omvandla?");
