@@ -302,51 +302,51 @@ namespace Projektuppgift
                 switch (inputPrefix)
                 {
                     case 1:
-                        if (outputPrefixA == 1) //ounce till gram, kilogram, ton
+                        if (outputPrefixSI == 1) //ounce till gram, kilogram, ton
                         {
                             answer = amountToConvert * 28.35;
                             answer = answer = Math.Round((answer), 2);
                         }
-                        else if (outputPrefixA == 2)
+                        else if (outputPrefixSI == 2)
                         {
                             answer = amountToConvert * 0.02835;
                             answer = answer = Math.Round((answer), 5);
                         }
-                        else if (outputPrefixA == 3)
+                        else if (outputPrefixSI == 3)
                         {
                             answer = amountToConvert * 0.0002835;
                             answer = answer = Math.Round((answer), 10);
                         }
                         break;
                     case 2:
-                        if (outputPrefixA == 1) //pound till gram, kilogram, ton
+                        if (outputPrefixSI == 1) //pound till gram, kilogram, ton
                         {
                             answer = amountToConvert * 450;
                             answer = answer = Math.Round((answer), 2);
                         }
-                        else if (outputPrefixA == 2)
+                        else if (outputPrefixSI == 2)
                         {
                             answer = amountToConvert * 0.45;
                             answer = answer = Math.Round((answer), 5);
                         }
-                        else if (outputPrefixA == 3)
+                        else if (outputPrefixSI == 3)
                         {
                             answer = amountToConvert * 0.00045;
                             answer = answer = Math.Round((answer), 10);
                         }
                         break;
                     case 3:
-                        if (outputPrefixA == 1)//short ton till gram, kilogram, ton
+                        if (outputPrefixSI == 1)//short ton till gram, kilogram, ton
                         {
                             answer = amountToConvert * 900000;
                             answer = answer = Math.Round((answer), 2);
                         }
-                        else if (outputPrefixA == 2)
+                        else if (outputPrefixSI == 2)
                         {
                             answer = amountToConvert * 900;
                             answer = answer = Math.Round((answer), 2);
                         }
-                        else if (outputPrefixA == 3)
+                        else if (outputPrefixSI == 3)
                         {
                             answer = amountToConvert * 0.9;
                             answer = answer = Math.Round((answer), 5);
@@ -482,10 +482,11 @@ namespace Projektuppgift
             void Answer()
             {
 
-                Console.WriteLine($"\n Svar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
+                Console.WriteLine($"\nSvar: {amountToConvert} {unit} är {answer} {outputPrefix}\n");
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
                 {
-                    outputFile.WriteLine($"Svar: {amountToConvert} {unit} är {answer} {outputPrefix}");
+                    DateTime tid = DateTime.Now;
+                    outputFile.WriteLine($"Tillagt: {tid}.Svar: {amountToConvert} {unit} är {answer} {outputPrefix}.");
                 }
             }
         }
