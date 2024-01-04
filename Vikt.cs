@@ -13,15 +13,15 @@ namespace Projektuppgift
         //Meny som visas om användaren har valt att konvertera viktenheter
         public void Menu1()
         {
-            int menu1Choice = 0;
+            int menu1Choice = 0 ;
             int menu2Choice;
             int inputPrefix;
             int outputPrefixA = 0;
             int outputPrefixSI = 0;
             double amountToConvert;
-            double answer = 0;
-            string unit = default;
-            string outputPrefix = default;
+            double answer= 0;
+            string unit = "";
+            string outputPrefix = "";
             //Strängen docPath anger vart resultetet av konverteringen ska sparas.
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 3)
@@ -32,7 +32,7 @@ namespace Projektuppgift
                              "\n2. Amerikansk enheter." +
                              "\n3. Gå tillbaka till föregående meny." +
                              "\n---------------------------------------\n");
-                string menu1ChoiceInput = Console.ReadLine();
+                string? menu1ChoiceInput = Console.ReadLine();
                 // While-loop som sköter felaktig input från användaren. Denna återanvänds i lite olika utförande för all användarinput.
                 while (!int.TryParse(menu1ChoiceInput, out menu1Choice) || menu1Choice > 3 || menu1Choice < 1)
                 {
@@ -52,7 +52,7 @@ namespace Projektuppgift
                                 "\n2. Kilogram" +
                                 "\n3. Ton" +
                                 "\n-------------------------------------------\n");
-                                string strInputPrefix = Console.ReadLine();
+                                string? strInputPrefix = Console.ReadLine();
                                 while (!int.TryParse(strInputPrefix, out inputPrefix) || inputPrefix > 3 || inputPrefix < 1)
                                 {
                                     Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
@@ -81,7 +81,7 @@ namespace Projektuppgift
                                "\n2. Pound" +
                                "\n3. Short ton" +
                                "\n-------------------------------------------\n ");
-                                string strInputPrefix = Console.ReadLine();
+                                string? strInputPrefix = Console.ReadLine();
                                 while (!int.TryParse(strInputPrefix, out inputPrefix) || inputPrefix > 3 || inputPrefix < 1)
                                 {
                                     Console.WriteLine("Felaktig input, ange en siffra mellan 1 och 3.");
@@ -115,7 +115,7 @@ namespace Projektuppgift
                             "\n1. SI-enhet." +
                             "\n2. Amerikanka enheter." +
                             "\n-------------------------------");
-                string menu2ChoiceInput = Console.ReadLine();
+                string? menu2ChoiceInput = Console.ReadLine();
                 while (!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 2 || menu2Choice < 1)
                 {
                     Console.WriteLine("Fel: Ange en siffra mellan 1 och 3.");
@@ -166,7 +166,7 @@ namespace Projektuppgift
                 }
             }
             //Metod som låter användaren välja prefix på outputen
-            string OutputPrefix()
+            void OutputPrefix()
             {
                 if (menu2Choice == 1)
                 {
@@ -176,7 +176,7 @@ namespace Projektuppgift
                                "\n2. Kilogram" +
                                "\n3. Ton" +
                                "\n-------------------------------------------\n ");
-                    string strOutputPrefixSI = Console.ReadLine();
+                    string? strOutputPrefixSI = Console.ReadLine();
                     while (!int.TryParse(strOutputPrefixSI, out outputPrefixSI) || outputPrefixSI > 3 || outputPrefixSI < 1)
                     {
                         Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
@@ -203,7 +203,7 @@ namespace Projektuppgift
                                "\n2. Pound" +
                                "\n3. Short ton" +
                                "\n-------------------------------------------\n ");
-                    string strOutputPrefixA = Console.ReadLine();
+                    string? strOutputPrefixA = Console.ReadLine();
                     while (!int.TryParse(strOutputPrefixA, out outputPrefixA) || outputPrefixA > 3 || outputPrefixA < 1)
                     {
                         Console.WriteLine("Felaktig input, skriv in en siffra mellan 1 och 3.");
@@ -222,14 +222,13 @@ namespace Projektuppgift
                         outputPrefix = "short ton";
                     }
                 }
-                return outputPrefix;
             }
             //Metoder som utför omvandlingsberäkningar, 
-            double SIToAmerican()
+            void SIToAmerican()
             {
                 Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
                 Console.Write("Ange värdet:");
-                string strAmountToConvert = Console.ReadLine();
+                string? strAmountToConvert = Console.ReadLine();
                 while(!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
                     Console.WriteLine("Fel: Ange ett tal som är större än 0");
@@ -289,14 +288,12 @@ namespace Projektuppgift
                         }
                         break;
                 }
-                return answer;
-
             }
-            double AmericanToSI()
+            void AmericanToSI()
             {
                 Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
                 Console.Write("Ange värdet:");
-                string strAmountToConvert = Console.ReadLine();
+                string? strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
                     Console.WriteLine("Fel: Ange ett tal som är större än 0");
@@ -356,14 +353,12 @@ namespace Projektuppgift
                         }
                         break;
                 }
-                return answer;
-
             }
-            double AmericanToAmerican()
+            void AmericanToAmerican()
             {
                 Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
                 Console.Write("Ange värdet:");
-                string strAmountToConvert = Console.ReadLine();
+                string? strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
                     Console.WriteLine("Fel: Ange ett tal som är större än 0");
@@ -420,14 +415,12 @@ namespace Projektuppgift
                         }
                         break;
                 }
-                return answer;
-
             }
-            double SIToSI()
+            void SIToSI()
             {
                 Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
                 Console.Write("Ange värdet:");
-                string strAmountToConvert = Console.ReadLine();
+                string? strAmountToConvert = Console.ReadLine();
                 while (!double.TryParse(strAmountToConvert, out amountToConvert) || amountToConvert < 0)
                 {
                     Console.WriteLine("Fel: Ange ett tal som är större än 0");
@@ -484,8 +477,6 @@ namespace Projektuppgift
                         }
                         break;
                 }
-                return answer;
-
             }
             //Metod som skriver ut svaret i konsolen och sparar resultatet av konverteringen till en fil.
             void Answer()
