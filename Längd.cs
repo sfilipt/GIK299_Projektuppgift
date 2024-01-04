@@ -32,9 +32,9 @@ namespace Projektuppgift
                 Console.WriteLine(
                     "-------------------Längd-------------------" +
                     "\nVilken enhet vill du konvertera från?" +
-                    "\n1.SI-enheter" +
-                    "\n2.Amerikanska enheter" +
-                    "\n3.Gå tillbaka till föregående meny." +
+                    "\n1. SI-enheter" +
+                    "\n2. Amerikanska enheter" +
+                    "\n3. Gå tillbaka till föregående meny." +
                     "\n-------------------------------------------"
                     );
 
@@ -46,6 +46,7 @@ namespace Projektuppgift
                 while (!int.TryParse(menu1LengthInput, out menuFrom) || menuFrom > 3 || menuFrom < 1)
                 {
                     Console.WriteLine("\nFelaktig input, skriv in en siffra mellan 1 och 3.");
+                    Console.Write("\nAnge ditt val: ");
                     menu1LengthInput = Console.ReadLine();
                 }
 
@@ -58,9 +59,9 @@ namespace Projektuppgift
                         Console.WriteLine(
                             "-------------------------------------------" +
                             "\nVilken prefix har enheten som du vill konvertera från?" +
-                            "\n1.Centimeter" +
-                            "\n2.Meter" +
-                            "\n3.Kilometer" +
+                            "\n1. Centimeter" +
+                            "\n2. Meter" +
+                            "\n3. Kilometer" +
                             "\n-------------------------------------------"
                             );
 
@@ -72,6 +73,7 @@ namespace Projektuppgift
                         while (!int.TryParse(SImenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
                         {
                             Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
+                            Console.Write("\nAnge ditt val: ");
                             SImenuFromInput = Console.ReadLine();
                         }
 
@@ -100,9 +102,9 @@ namespace Projektuppgift
                         Console.WriteLine(
                             "-------------------------------------------" +
                             "\nVilken prefix har enheten som du vill konvertera från?" +
-                            "\n1.Feet" +
-                            "\n2.Yards" +
-                            "\n3.Miles" +
+                            "\n1. Feet" +
+                            "\n2. Yards" +
+                            "\n3. Miles" +
                             "\n-------------------------------------------"
                             );
 
@@ -114,6 +116,7 @@ namespace Projektuppgift
                         while (!int.TryParse(USmenuFromInput, out fromUnit) || fromUnit > 3 || fromUnit < 1)
                         {
                             Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
+                            Console.Write("\nAnge ditt val: ");
                             USmenuFromInput = Console.ReadLine();
                         }
 
@@ -153,12 +156,12 @@ namespace Projektuppgift
                 Console.WriteLine(
                     "-------------------------------------------" +
                     "\nVilken prefix har enheten som du vill konvertera till?" +
-                    "\n1.Centimeter" +
-                    "\n2.Meter" +
-                    "\n3.Kilometer" +
-                    "\n4.Feet" +
-                    "\n5.Yards" +
-                    "\n6.Miles" +
+                    "\n1. Centimeter" +
+                    "\n2. Meter" +
+                    "\n3. Kilometer" +
+                    "\n4. Feet" +
+                    "\n5. Yards" +
+                    "\n6. Miles" +
                     "\n-------------------------------------------"
                     );
 
@@ -170,6 +173,7 @@ namespace Projektuppgift
                 while (!int.TryParse(menutoInput, out toUnit) || toUnit > 6 || toUnit < 1)
                 {
                     Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 6.");
+                    Console.Write("\nAnge ditt val: ");
                     menutoInput = Console.ReadLine();
                 }
 
