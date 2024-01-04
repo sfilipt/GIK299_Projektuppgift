@@ -433,7 +433,7 @@ namespace Projektuppgift
                 Console.WriteLine($"\nSvar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
                 using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "Resultat.txt"), true))
                 {
-                    outputFile.WriteLine($"\nSvar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
+                    outputFile.WriteLine($"Svar: {value} {fromUnitPrefix} är {answer} {toUnitPrefix}");
                 }
             }
         }
