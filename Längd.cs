@@ -13,15 +13,15 @@ namespace Projektuppgift
         public void Menu1()
         {
             // Variabler för användarens input och konverteringsresultat
-            double answer;
-            double value;
-            int fromUnit;
             int toUnit;
+            int fromUnit;
+            double value;
+            double answer;
+            int menuFrom = 0;
             string? SImenuFromInput = default;
             string? USmenuFromInput = default;
             string? fromUnitPrefix = default;
             string? toUnitPrefix = default;
-            int menuFrom = 0;
             // Sökväg för att spara resultatfilen
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             
@@ -30,7 +30,7 @@ namespace Projektuppgift
             {
                 // Skriver ut huvudmenyn
                 Console.WriteLine(
-                    "-------------------Längd-------------------" +
+                    "\n-------------------Längd-------------------" +
                     "\nVilken enhet vill du konvertera från?" +
                     "\n1. SI-enheter" +
                     "\n2. Amerikanska enheter" +
@@ -150,7 +150,7 @@ namespace Projektuppgift
             }
 
             // Metod för att välja enhet att konvertera till
-            string Menu2()
+            void Menu2()
             {
                 // Skriver ut menyn för att välja enhet att konvertera till
                 Console.WriteLine(
@@ -208,7 +208,6 @@ namespace Projektuppgift
                         Console.WriteLine("\nOgiltigt val. Försök igen. ");
                         break;
                 }
-                return toUnitPrefix;
             }
 
             // Metod för att mata in värdet som ska konverteras
