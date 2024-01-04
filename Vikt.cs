@@ -20,8 +20,8 @@ namespace Projektuppgift
             int outputPrefixSI = 0;
             double amountToConvert;
             double answer= 0;
-            string unit = "";
-            string outputPrefix = "";
+            string? unit = default;
+            string? outputPrefix = default;
             //Strängen docPath anger vart resultetet av konverteringen ska sparas.
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 3)

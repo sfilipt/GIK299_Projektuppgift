@@ -15,8 +15,8 @@ namespace Projektuppgift
             int menu2Choice;
             double amountToConvert = 0;
             double answer = 0;
-            string unit;
-            string outputUnit = "";
+            string? unit = default;
+            string? outputUnit = default;
             //Strängen docPath anger vart resultetet av konverteringen ska sparas.
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             while (menu1Choice != 4)
