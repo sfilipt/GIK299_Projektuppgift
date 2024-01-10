@@ -5,11 +5,11 @@
         static void Main(string[] args)
         {
             int menuLength = 0;
+            string? menuInput = default;
             while (menuLength != 4)
             {
-                Console.Clear();
                 Console.WriteLine(
-                    "-----Välkommen till Enhetskonverteringen-----" +
+                    "\n-----Välkommen till Enhetskonverteringen-----" +
                     "\nVilken enhetskonvertering vill du testa?" +
                     "\n1.Längd" +
                     "\n2.Temperatur" +
@@ -18,7 +18,14 @@
                     "\n-----By: Filip Strand och Mattias Arvidsson-----\n"
                     );
 
-                menuLength = Convert.ToInt32(Console.ReadLine());
+                menuInput = Console.ReadLine();
+
+                while (!int.TryParse(menuInput, out menuLength) || menuLength > 4 || menuLength < 1)
+                {
+                    Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
+                    Console.Write("\nAnge ditt val: ");
+                    menuInput = Console.ReadLine();
+                }
 
                 switch (menuLength)
                 {
