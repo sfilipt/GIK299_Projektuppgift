@@ -50,6 +50,7 @@ namespace Projektuppgift
                         Menu2();
                         break;
                     case 4:
+                        Console.Clear();
                         break;
                 }
 

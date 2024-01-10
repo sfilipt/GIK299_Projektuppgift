@@ -103,6 +103,7 @@ namespace Projektuppgift
                             }
                             break;
                         case 3:
+                            Console.Clear();
                             break;
                     }
                 }
