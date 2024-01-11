@@ -9,25 +9,26 @@ namespace Projektuppgift
 {
     public class Längd
     {
+        // Variabler för användarens input och konverteringsresultat
+        private int toUnit;
+        private int fromUnit;
+        private double value;
+        private double answer;
+        private int menuFrom = 0;
+        private string? menu1Input = default;
+        private string? menutoInput = default;
+        private string? valueInput = default;
+        private string? SImenuFromInput = default;
+        private string? USmenuFromInput = default;
+        private string? fromUnitPrefix = default;
+        private string? toUnitPrefix = default;
+        // Sökväg för att spara resultatfilen
+        string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
         // Metod för huvudmenyn för längdkonvertering
         public void Menu1()
         {
-            // Variabler för användarens input och konverteringsresultat
-            int toUnit;
-            int fromUnit;
-            double value;
-            double answer;
-            int menuFrom = 0;
-            string? menu1Input = default;
-            string? menutoInput = default;
-            string? valueInput = default;
-            string? SImenuFromInput = default;
-            string? USmenuFromInput = default;
-            string? fromUnitPrefix = default;
-            string? toUnitPrefix = default;
-            // Sökväg för att spara resultatfilen
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            
+
             // Huvudloop för menyn
             while (menuFrom != 3)
             {
