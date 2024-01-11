@@ -2,13 +2,14 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        // Variabler för användarens input och konverteringsresultat
+        private int menuChoice = 0;
+        private string? menuInput = default;
+        public void Main(string[] args)
         {
-            // Variabler för användarens input och konverteringsresultat
-            int menuLength = 0;
-            string? menuInput = default;
+
             // While-loop för att hålla programmet igång tills användaren väljer att avsluta
-            while (menuLength != 4)
+            while (menuChoice != 4)
             {
                 // Menyutskrift
                 Console.WriteLine(
@@ -25,7 +26,7 @@
                 menuInput = Console.ReadLine();
 
                 // Validerar inmatningen för att säkerställa att den är en siffra mellan 1 och 4
-                while (!int.TryParse(menuInput, out menuLength) || menuLength > 4 || menuLength < 1)
+                while (!int.TryParse(menuInput, out menuChoice) || menuChoice > 4 || menuChoice < 1)
                 {
                     Console.WriteLine("\nFelaktig input, ange en siffra mellan 1 och 3.");
                     Console.Write("\nAnge ditt val: ");
@@ -33,7 +34,7 @@
                 }
 
                 // Använder en switch-sats för att välja rätt konverteringsmeny baserat på användarens val
-                switch (menuLength)
+                switch (menuChoice)
                 {
                     case 1:
                         // Skapa en instans av Längd-klassen och anropa dess Menu1-metod
