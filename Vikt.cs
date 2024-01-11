@@ -10,20 +10,22 @@ namespace Projektuppgift
 {
     public class Vikt
     {
+        //Variabler som används för att hantera menyinput och konverteringar
+        private int menu1Choice = 0;
+        private int menu2Choice;
+        private int inputPrefix;
+        private int outputPrefixA = 0;
+        private int outputPrefixSI = 0;
+        private double amountToConvert;
+        private double answer = 0;
+        private string? unit = default;
+        private string? outputPrefix = default;
+        //Strängen docPath anger vart resultetet av konverteringen ska sparas.
+        private string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         //Meny som visas om användaren har valt att konvertera viktenheter
         public void Menu1()
         {
-            int menu1Choice = 0 ;
-            int menu2Choice;
-            int inputPrefix;
-            int outputPrefixA = 0;
-            int outputPrefixSI = 0;
-            double amountToConvert;
-            double answer= 0;
-            string? unit = default;
-            string? outputPrefix = default;
-            //Strängen docPath anger vart resultetet av konverteringen ska sparas.
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //While-loop som hanterar menyn för vikt
             while (menu1Choice != 3)
             {
                 Console.WriteLine("\n--------------Vikt---------------------\n" +
@@ -119,7 +121,7 @@ namespace Projektuppgift
                 string? menu2ChoiceInput = Console.ReadLine();
                 while (!int.TryParse(menu2ChoiceInput, out menu2Choice) || menu2Choice > 2 || menu2Choice < 1)
                 {
-                    Console.WriteLine("Fel: Ange en siffra mellan 1 och 3.");
+                    Console.WriteLine("Fel: Ange en siffra mellan 1 och 2.");
                     menu2ChoiceInput = Console.ReadLine();
                 }
                 switch (menu2Choice)
@@ -225,6 +227,7 @@ namespace Projektuppgift
                 }
             }
             //Metoder som utför omvandlingsberäkningar, 
+            //Metod som används för att omnvandla från SI-enheter till US-enheter
             void SIToAmerican()
             {
                 Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
@@ -290,6 +293,7 @@ namespace Projektuppgift
                         break;
                 }
             }
+            //Metod som används för att omnvandla från US-enheter till SI
             void AmericanToSI()
             {
                 Console.WriteLine($"\nHur många {unit} vill du omvandla?\n");
@@ -355,6 +359,7 @@ namespace Projektuppgift
                         break;
                 }
             }
+            //Metod som används för att omnvandla från US-enheter till US-enheter
             void AmericanToAmerican()
             {
                 Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");
@@ -417,6 +422,7 @@ namespace Projektuppgift
                         break;
                 }
             }
+            //Metod som används för att omnvandla från SI-enheter till SI-enheter
             void SIToSI()
             {
                 Console.WriteLine($"\nHur många  {unit}  vill du omvandla?\n");

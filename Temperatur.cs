@@ -8,17 +8,19 @@ namespace Projektuppgift
 {
     public class Temperatur
     {
+        private int menu1Choice = 0;
+        private int menu2Choice;
+        private double amountToConvert = 0;
+        private double answer = 0;
+        private string? unit = default;
+        private string? outputUnit = default;
+        //Strängen docPath anger vart resultetet av konverteringen ska sparas.
+        private string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         //Meny som visas om användaren valt att konvertera temperatur
         public void Menu1()
         {
-            int menu1Choice = 0;
-            int menu2Choice;
-            double amountToConvert = 0;
-            double answer = 0;
-            string? unit = default;
-            string? outputUnit = default;
-            //Strängen docPath anger vart resultetet av konverteringen ska sparas.
-            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //Variabler som används för att hantera menyinput och konverteringar
+            
             while (menu1Choice != 4)
             {
                 Console.WriteLine("\n--------------Temperatur---------------------\n" +
